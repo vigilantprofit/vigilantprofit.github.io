@@ -14,8 +14,24 @@
 
 <body class="bg-white text-gray-900 leading-relaxed">
 
+  <!-- STICKY HEADER WITH COMPANY NAME -->
+  <header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 bg-indigo-600 rounded-lg"></div>
+        <span class="text-xl font-bold text-gray-900">Vigilant Profit Solutions LLC</span>
+      </div>
+      <nav class="hidden md:flex space-x-8 text-sm font-medium">
+        <a href="#benefits" class="text-gray-600 hover:text-indigo-600 transition">Benefits</a>
+        <a href="#cases" class="text-gray-600 hover:text-indigo-600 transition">Rescues</a>
+        <a href="#whitepaper" class="text-gray-600 hover:text-indigo-600 transition">Whitepaper</a>
+        <a href="#contact" class="text-indigo-600 font-semibold">Get Scan</a>
+      </nav>
+    </div>
+  </header>
+
   <!-- HERO -->
-  <header class="min-h-screen flex items-center justify-center px-6 text-center">
+  <section class="min-h-screen flex items-center justify-center px-6 text-center">
     <div class="max-w-3xl">
       <h1 class="text-5xl md:text-6xl font-bold mb-6">
         Securing Tomorrow’s Code,<br><span class="text-indigo-600">Today</span>
@@ -27,10 +43,10 @@
         Get a Free Vulnerability Scan
       </a>
     </div>
-  </header>
+  </section>
 
   <!-- BENEFITS -->
-  <section class="py-20 px-6 bg-gray-50">
+  <section id="benefits" class="py-20 px-6 bg-gray-50">
     <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center">
       <div>
         <div class="text-4xl mb-3">Shield</div>
@@ -51,7 +67,7 @@
   </section>
 
   <!-- MINI CASE STUDIES -->
-  <section class="py-20 px-6">
+  <section id="cases" class="py-20 px-6">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl font-bold text-center mb-12">Real Rescues</h2>
       <div class="grid md:grid-cols-3 gap-8">
@@ -72,7 +88,7 @@
   </section>
 
   <!-- WHITEPAPER CTA -->
-  <section class="py-20 px-6 bg-indigo-50">
+  <section id="whitepaper" class="py-20 px-6 bg-indigo-50">
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-4">AI Agents in the Enterprise – Aura.pdf</h2>
       <p class="mb-6">40 % ROI lift in 6 months. Zero tolerance for AI lies.</p>
