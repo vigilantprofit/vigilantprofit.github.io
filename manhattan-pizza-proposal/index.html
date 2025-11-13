@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="robots" content="noindex, nofollow"/>
-  <title>Xplor Pay Proposal – Manhattan Pizza | Vigilant Profit</title>
+  <title>Xplor Pay Proposal – Manhattan Pizza | Vigilant Profit Solutions</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -28,8 +28,23 @@
       color: white;
       padding: 2rem;
       text-align: center;
+      position: relative;
     }
-    header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+    .logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .logos img {
+      height: 50px;
+      width: auto;
+      max-width: 180px;
+      object-fit: contain;
+    }
+    header h1 { font-size: 2.2rem; margin: 0.5rem 0; }
     header p { font-size: 1.1rem; opacity: 0.9; }
     .confidential {
       background: #fff3cd; color: #856404; padding: 0.75rem; text-align: center; font-weight: 600; font-size: 0.9rem;
@@ -48,9 +63,6 @@
     tr:nth-child(even) { background: #f8f9fa; }
     .highlight { background: #e6f0ff !important; font-weight: 600; }
     .savings { color: var(--success); font-weight: 700; }
-    .badge {
-      display: inline-block; background: var(--primary); color: white; padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600;
-    }
     .roi-box {
       background: linear-gradient(135deg, #d4edda, #c3e6cb); padding: 1.5rem; border-radius: 10px; text-align: center; margin: 1.5rem 0;
     }
@@ -67,6 +79,7 @@
     @media (max-width: 768px) {
       body { padding: 1rem; }
       header h1 { font-size: 1.8rem; }
+      .logos img { height: 40px; }
       table { font-size: 0.85rem; }
       th, td { padding: 0.5rem; }
     }
@@ -74,6 +87,7 @@
       body { padding: 0; }
       .container { box-shadow: none; }
       .cta, .confidential { display: none; }
+      .logos img { height: 40px !important; }
     }
   </style>
 </head>
@@ -85,9 +99,14 @@
   </div>
 
   <header>
+    <div class="logos">
+      <img src="vps-logo.png" alt="Vigilant Profit Solutions Logo">
+      <img src="xplorpay-logo.svg" alt="Xplor Pay Logo">
+    </div>
     <h1>Xplor Pay Proposal</h1>
     <p><strong>Prepared for:</strong> Manhattan Pizza Company, LLC<br>
     <strong>Prepared by:</strong> [Your Full Name], Account Executive, Xplor Pay<br>
+    <strong>Via:</strong> Vigilant Profit Solutions LLC<br>
     <strong>Date:</strong> November 13, 2025</p>
   </header>
 
@@ -95,7 +114,7 @@
     <h2>Executive Summary</h2>
     <p>Manhattan Pizza operates a high-performing, multi-location Italian QSR chain with <strong>$1.2 million in annual gross revenue per location</strong> and <strong>100% card-present + digital payment volume</strong> — a modern payment footprint that demands precision, speed, and scalability.</p>
     <p>Your current stack — <strong>Thrive POS + Cygnus Payments</strong> — delivers core functionality but introduces documented friction in <strong>training complexity, support latency, multi-location reconciliation, and payment cost opacity</strong>. These inefficiencies compound across 8+ locations, creating <strong>$45,000–$65,000 in annual recoverable opportunity cost per store</strong>.</p>
-    <p><strong>Xplor Pay</strong> is purpose-built for Italian QSRs like yours. We integrate natively with Thrive hardware (zero rip-and-replace), reduce effective processing costs by <strong>19–27%</strong>, and deliver <strong>real-time omni-channel intelligence</strong> that turns your SMS/email loyalty engine into a <strong>predictive revenue driver</strong>.</p>
+    <p><strong>Xplor Pay</strong>, delivered through <strong>Vigilant Profit Solutions</strong>, is purpose-built for Italian QSRs like yours. We integrate natively with Thrive hardware (zero rip-and-replace), reduce effective processing costs by <strong>19–27%</strong>, and deliver <strong>real-time omni-channel intelligence</strong> that turns your SMS/email loyalty engine into a <strong>predictive revenue driver</strong>.</p>
     <p>This proposal quantifies your current pain points, benchmarks them against <strong>peer Italian QSRs</strong>, and presents a <strong>90-day risk-free migration path</strong> with <strong>guaranteed ROI within 6 months</strong>.</p>
   </section>
 
@@ -218,7 +237,7 @@
   </div>
 
   <footer>
-    <p>© 2025 Vigilant Profit • Xplor Pay • All rights reserved<br>
+    <p>© 2025 Vigilant Profit Solutions LLC • Xplor Pay • All rights reserved<br>
     <em>This proposal is confidential and intended solely for Manhattan Pizza leadership.</em></p>
   </footer>
 </div>
