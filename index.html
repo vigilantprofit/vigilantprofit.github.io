@@ -48,65 +48,73 @@
     </div>
   </section>
 
-  <!-- BENEFITS -->
-  <section id="benefits" class="py-24 px-6 bg-gray-50">
-    <div class="max-w-4xl mx-auto">
+  <!-- KEY BENEFITS + REAL RESCUES -->
+  <section class="py-24 px-6 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <!-- KEY BENEFITS HEADER -->
       <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Key Benefits</h2>
-      <div class="grid md:grid-cols-3 gap-8 text-center">
+
+      <!-- BENEFITS + RESCUES GRID -->
+      <div class="grid lg:grid-cols-4 gap-8 items-start">
+        
         <!-- REAL-TIME ANOMALY GUARD -->
-        <div class="flex flex-col items-center">
-          <div class="text-5xl mb-4">
-            <svg class="w-12 h-12 mx-auto text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-indigo-100 rounded-full flex items-center justify-center">
+            <svg class="w-10 h-10 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
               <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z"/>
               <path d="M10 7a1 1 0 011 1v3a1 1 0 11-2 0V8a1 1 0 011-1z"/>
               <circle cx="10" cy="13" r="1"/>
             </svg>
           </div>
           <h3 class="font-bold text-xl mb-2">Real-time Anomaly Guard</h3>
-          <p class="text-gray-600">Catch infinite loops & hallucinations before they cost you.</p>
+          <p class="text-gray-600 text-sm">Catch infinite loops & hallucinations before they cost you.</p>
         </div>
 
         <!-- IMMUTABLE CODE FREEZE -->
-        <div class="flex flex-col items-center">
-          <div class="text-5xl mb-4">
-            <svg class="w-12 h-12 mx-auto text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-purple-100 rounded-full flex items-center justify-center">
+            <svg class="w-10 h-10 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
             </svg>
           </div>
           <h3 class="font-bold text-xl mb-2">Immutable Code Freeze</h3>
-          <p class="text-gray-600">Production stays untouched – even when the AI “gets creative.”</p>
+          <p class="text-gray-600 text-sm">Production stays untouched – even when the AI “gets creative.”</p>
         </div>
 
         <!-- AUTO-COMPLIANCE REPORTS -->
-        <div class="flex flex-col items-center">
-          <div class="text-5xl mb-4">
-            <svg class="w-12 h-12 mx-auto text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+            <svg class="w-10 h-10 text-green-600" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
             </svg>
           </div>
           <h3 class="font-bold text-xl mb-2">Auto-Compliance Reports</h3>
-          <p class="text-gray-600">SOC 2, GDPR, PCI – audit-ready in 72 h.</p>
+          <p class="text-gray-600 text-sm">SOC 2, GDPR, PCI – audit-ready in 72 h.</p>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CASE STUDIES -->
-  <section id="cases" class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-12">Real Rescues</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="border rounded-lg p-8 hover:shadow-xl transition">
-          <h3 class="font-bold text-lg mb-2">Fintech – $1.2 M Saved</h3>
-          <p class="text-sm text-gray-600">Stopped PII leak in vibe-coded transaction engine.</p>
-        </div>
-        <div class="border rounded-lg p-8 hover:shadow-xl transition">
-          <h3 class="font-bold text-lg mb-2">Web3 Wallet – $40 K Recovered</h3>
-          <p class="text-sm text-gray-600">Isolated exploit in 4 h; rebuilt with Aura.</p>
-        </div>
-        <div class="border rounded-lg p-8 hover:shadow-xl transition">
-          <h3 class="font-bold text-lg mb-2">SaaS – 75 % Faster Recovery</h3>
-          <p class="text-sm text-gray-600">Replit DB wipe → full rollback in one morning.</p>
+        <!-- REAL RESCUES -->
+        <div class="bg-white p-6 rounded-xl shadow-lg border">
+          <h3 class="text-2xl font-bold text-center mb-6">Real Rescues</h3>
+          <div class="space-y-6">
+            <!-- FINTECH -->
+            <div class="text-center">
+              <div class="text-3xl font-bold text-indigo-600">$1.2 M</div>
+              <div class="text-sm font-medium">Saved</div>
+              <p class="text-xs text-gray-600 mt-1">Stopped PII leak in vibe-coded transaction engine.</p>
+            </div>
+            <!-- WEB3 -->
+            <div class="text-center">
+              <div class="text-3xl font-bold text-purple-600">$40 K</div>
+              <div class="text-sm font-medium">Recovered</div>
+              <p class="text-xs text-gray-600 mt-1">Isolated exploit in 4 h; rebuilt with Aura.</p>
+            </div>
+            <!-- SAAS -->
+            <div class="text-center">
+              <div class="text-3xl font-bold text-green-600">75 %</div>
+              <div class="text-sm font-medium">Faster Recovery</div>
+              <p class="text-xs text-gray-600 mt-1">Replit DB wipe → full rollback in one morning.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
