@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ROI Calculator | VPS</title>
+  <link rel="icon" href="/logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap'); body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-gray-50">
+  <header class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+      <a href="/" class="flex items-center space-x-4">
+        <img src="/logo.png" alt="VPS" class="h-16">
+        <span class="text-xl font-bold">Vigilant Profit Solutions</span>
+      </a>
+      <a href="/" class="text-indigo-600 font-bold">← Home</a>
+    </div>
+  </header>
+
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-5xl font-bold text-center mb-8">ROI Calculator</h1>
+      <p class="text-xl text-center text-gray-600 mb-12">
+        See how fast your project pays off — with VPS AI boost.
+      </p>
+
+      <div class="bg-white p-8 rounded-xl shadow-lg">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold mb-6">Project Inputs</h3>
+            <input type="number" id="cost" placeholder="Total Cost ($)" class="w-full p-3 border rounded mb-4">
+            <input type="number" id="revenue" placeholder="Annual Revenue/Savings ($)" class="w-full p-3 border rounded mb-4">
+            <input type="number" id="teamSize" placeholder="Team Size" class="w-full p-3 border rounded mb-4">
+            <input type="number" id="years" value="3" class="w-full p-3 border rounded mb-6">
+            <button onclick="calculateROI()" class="w-full bg-indigo-600 text-white font-bold py-3 rounded">Calculate</button>
+          </div>
+          <div id="results" class="hidden">
+            <h3 class="text-2xl font-bold mb-6">Results</h3>
+            <div class="grid grid-cols-2 gap-4 text-center">
+              <div class="bg-indigo-50 p-4 rounded"><div class="text-3xl font-bold" id="roiPercent">0%</div><div>ROI</div></div>
+              <div class="bg-green-50 p-4 rounded"><div class="text-3xl font-bold" id="payback">0</div><div>Months</div></div>
+            </div>
+            <p class="mt-4 text-sm" id="insights"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  function calculateROI() {
+    const cost = parseFloat(document.getElementById('cost').value) || 0;
+    const revenue = parseFloat(document.getElementById('revenue').value) || 0;
+    const teamSize = parseFloat(document.getElementById('teamSize').value) || 1;
+    const years = parseFloat(document.getElementById('years').value) || 1;
+    const netProfit = (revenue * years) - cost;
+    const roi = (netProfit / cost) * 100;
+    const payback = Math.ceil(cost / (revenue / 12));
+    const aiBoost = Math.round(roi * 0.25);
+    document.getElementById('roiPercent').textContent = roi.toFixed(0) + '%';
+    document.getElementById('payback').textContent = payback;
+    document.getElementById('insights').textContent = `With VPS Aura + partners: +${aiBoost}% ROI uplift.`;
+    document.getElementById('results').classList.remove('hidden');
+  }
+  </script>
+</body>
+</html>
