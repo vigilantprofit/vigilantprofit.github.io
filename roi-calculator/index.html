@@ -3,59 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ROI Calculator | VPS</title>
+  <title>ROI Calculator | Vigilant Profit Solutions</title>
   <link rel="icon" href="/logo.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-    body { font-family: 'Inter', sans-serif; }
-  </style>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap'); body { font-family: 'Inter', sans-serif; }</style>
 </head>
 <body class="bg-gray-50">
-  <header class="bg-white shadow-md">
+  <header class="bg-white shadow-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
       <a href="/" class="flex items-center space-x-4">
-        <img src="/logo.png" alt="VPS" class="h-16">
+        <img src="/logo.png" alt="VPS" class="h-16 w-auto">
         <span class="text-xl font-bold">Vigilant Profit Solutions</span>
       </a>
-      <a href="/" class="text-indigo-600 font-bold">Home</a>
+      <a href="/" class="text-indigo-600 font-bold hover:underline">← Home</a>
     </div>
   </header>
 
   <section class="py-20 px-6">
     <div class="max-w-4xl mx-auto">
       <h1 class="text-5xl font-bold text-center mb-8">ROI Calculator</h1>
-      <p class="text-xl text-center text-gray-600 mb-12">
-        Enter your project details. Get a full report in seconds.
-      </p>
+      <p class="text-xl text-center text-gray-600 mb-12">See your payoff — with VPS AI boost</p>
 
-      <div class="bg-white p-8 rounded-xl shadow-lg">
-        <div class="grid md:grid-cols-2 gap-8">
-          <!-- INPUTS -->
+      <div class="bg-white p-10 rounded-3xl shadow-xl">
+        <div class="grid md:grid-cols-2 gap-10">
           <div>
-            <h3 class="text-2xl font-bold mb-6">Project Inputs</h3>
-            <input type="text" id="projectName" placeholder="Project Name (optional)" class="w-full p-3 border rounded mb-4">
-            <input type="number" id="cost" placeholder="Total Cost ($)" class="w-full p-3 border rounded mb-4">
-            <input type="number" id="revenue" placeholder="Annual Revenue/Savings ($)" class="w-full p-3 border rounded mb-4">
-            <input type="number" id="teamSize" placeholder="Team Size" class="w-full p-3 border rounded mb-4">
-            <input type="number" id="years" value="3" class="w-full p-3 border rounded mb-6">
-            <button onclick="calculateAndGeneratePDF()" class="w-full bg-indigo-600 text-white font-bold py-3 rounded mb-2">
+            <input type="text" id="projectName" placeholder="Project Name (optional)" class="w-full p-4 border rounded-lg mb-4">
+            <input type="number" id="cost" placeholder="Total Cost ($)*" required class="w-full p-4 border rounded-lg mb-4">
+            <input type="number" id="revenue" placeholder="Annual Revenue/Savings ($)*" required class="w-full p-4 border rounded-lg mb-4">
+            <input type="number" id="teamSize" placeholder="Team Size" class="w-full p-4 border rounded-lg mb-4">
+            <input type="number" id="years" value="3" class="w-full p-4 border rounded-lg mb-6">
+            <button onclick="calculateAndGeneratePDF()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-lg">
               Generate PDF Report
             </button>
-            <button onclick="calculateROI()" class="w-full bg-gray-200 text-gray-700 font-bold py-3 rounded">
-              Preview Only
-            </button>
           </div>
-
-          <!-- RESULTS -->
-          <div id="results" class="hidden">
-            <h3 class="text-2xl font-bold mb-6">Live Preview</h3>
-            <div class="grid grid-cols-2 gap-4 text-center">
-              <div class="bg-indigo-50 p-4 rounded"><div class="text-3xl font-bold" id="roiPercent">0%</div><div>ROI</div></div>
-              <div class="bg-green-50 p-4 rounded"><div class="text-3xl font-bold" id="payback">0</div><div>Months</div></div>
-            </div>
-            <p class="mt-4 text-sm" id="insights"></p>
+          <div id="results" class="hidden text-center">
+            <div class="text-6xl font-black text-indigo-600" id="roiPercent">0%</div>
+            <p class="text-xl mt-2">ROI</p>
+            <p class="text-4xl font-bold text-green-600 mt-6" id="payback">0</p>
+            <p class="text-lg">Month Payback</p>
+            <p class="mt-6 text-gray-700" id="insights"></p>
           </div>
         </div>
       </div>
@@ -63,99 +50,38 @@
   </section>
 
   <script>
-  function calculateROI(showOnly = true) {
-    const cost = parseFloat(document.getElementById('cost').value) || 0;
-    const revenue = parseFloat(document.getElementById('revenue').value) || 0;
-    const teamSize = parseFloat(document.getElementById('teamSize').value) || 1;
-    const years = parseFloat(document.getElementById('years').value) || 1;
-    const projectName = document.getElementById('projectName').value || "Your Project";
-
-    if (cost <= 0 || revenue <= 0) {
-      alert('Please enter valid cost and revenue.');
-      return null;
-    }
-
-    const netProfit = (revenue * years) - cost;
-    const roi = (netProfit / cost) * 100;
-    const payback = Math.ceil(cost / (revenue / 12));
-    const aiBoost = Math.round(roi * 0.25);
-
-    const data = { projectName, cost, revenue, teamSize, years, roi: roi.toFixed(0), payback, aiBoost };
-
-    if (showOnly) {
-      document.getElementById('roiPercent').textContent = data.roi + '%';
-      document.getElementById('payback').textContent = data.payback;
-      document.getElementById('insights').textContent = `With VPS Aura + partners: +${data.aiBoost}% ROI uplift.`;
-      document.getElementById('results').classList.remove('hidden');
-    }
-
-    return data;
-  }
-
   function calculateAndGeneratePDF() {
     const data = calculateROI(false);
     if (!data) return;
-
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
-
-    // Header
     doc.addImage('/logo.png', 'PNG', 15, 10, 40, 40);
-    doc.setFontSize(20);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Vigilant Profit Solutions LLC', 65, 25);
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'normal');
-    doc.text('Securing Tomorrow’s Code, Today™', 65, 35);
-
-    // Title
-    doc.setFontSize(18);
-    doc.setTextColor(79, 70, 229); // indigo-600
-    doc.text('ROI Report: ' + data.projectName, 15, 60);
-
-    // Summary
-    doc.setFontSize(14);
-    doc.setTextColor(0, 0, 0);
-    doc.text('Project Summary', 15, 75);
-    doc.setFontSize(11);
-    doc.text(`• Total Cost: $${data.cost.toLocaleString()}`, 15, 85);
-    doc.text(`• Annual Revenue/Savings: $${data.revenue.toLocaleString()}`, 15, 92);
-    doc.text(`• Timeframe: ${data.years} year(s)`, 15, 99);
-    doc.text(`• Team Size: ${data.teamSize} developers`, 15, 106);
-
-    // Results
-    doc.setFontSize(16);
-    doc.setTextColor(79, 70, 229);
-    doc.text('Results', 15, 125);
-    doc.setFontSize(24);
-    doc.setTextColor(34, 197, 94); // green-600
-    doc.text(data.roi + '% ROI', 15, 145);
-    doc.setFontSize(14);
-    doc.setTextColor(0, 0, 0);
-    doc.text(`Payback Period: ${data.payback} months`, 15, 155);
-
-    // VPS Boost
-    doc.setFontSize(14);
-    doc.setTextColor(139, 92, 246); // purple-600
-    doc.text('VPS AI Boost', 15, 175);
-    doc.setFontSize(11);
-    doc.text(`• Aura governance: +25% efficiency`, 15, 185);
-    doc.text(`• Partner execution: 20% faster delivery`, 15, 192);
-    doc.text(`→ Total uplift: +${data.aiBoost}% ROI`, 15, 199);
-
-    // CTA
-    doc.setFontSize(12);
-    doc.setTextColor(79, 70, 229);
-    doc.text('Ready to build? Contact us:', 15, 220);
-    doc.text('https://vigilantprofit.com/#contact', 15, 230);
-
-    // Footer
-    doc.setFontSize(10);
-    doc.setTextColor(100, 100, 100);
-    doc.text('© 2025 Vigilant Profit Solutions LLC', 15, 280);
-
-    // Download
-    doc.save(`${data.projectName.replace(/[^a-z0-9]/gi, '_')}_ROI_Report.pdf`);
+    doc.setFontSize(20); doc.text('Vigilant Profit Solutions', 65, 25);
+    doc.setFontSize(18); doc.setTextColor(79,70,229); doc.text('ROI Report: ' + data.projectName, 15, 60);
+    doc.setFontSize(14); doc.setTextColor(0); doc.text(`Cost: $${data.cost.toLocaleString()} • Revenue: $${data.revenue.toLocaleString()}`, 15, 80);
+    doc.setFontSize(30); doc.setTextColor(34,197,94); doc.text(data.roi + '% ROI', 15, 120);
+    doc.setFontSize(14); doc.text(`Payback: ${data.payback} months • +${data.aiBoost}% with VPS`, 15, 140);
+    doc.setFontSize(12); doc.text('Contact: vigilantprofit.com/#contact', 15, 220);
+    doc.save(`${data.projectName.replace(/[^a-z0-9]/gi, '_')}_ROI.pdf`);
+  }
+  function calculateROI(show = true) {
+    const cost = parseFloat(document.getElementById('cost').value) || 0;
+    const revenue = parseFloat(document.getElementById('revenue').value) || 0;
+    const years = parseFloat(document.getElementById('years').value) || 1;
+    const projectName = document.getElementById('projectName').value || "Project";
+    if (cost <= 0 || revenue <= 0) { if(show) alert("Enter cost & revenue"); return null; }
+    const net = (revenue * years) - cost;
+    const roi = (net / cost) * 100;
+    const payback = Math.ceil(cost / (revenue / 12));
+    const aiBoost = Math.round(roi * 0.25);
+    const data = { projectName, cost, revenue, years, roi: roi.toFixed(0), payback, aiBoost };
+    if (show) {
+      document.getElementById('roiPercent').textContent = data.roi + '%';
+      document.getElementById('payback').textContent = data.payback;
+      document.getElementById('insights').textContent = `+${data.aiBoost}% ROI uplift with VPS Aura + partners`;
+      document.getElementById('results').classList.remove('hidden');
+    }
+    return data;
   }
   </script>
 </body>
