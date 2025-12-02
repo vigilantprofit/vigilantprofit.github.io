@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XplorPay Processing Analysis for Manhattan Pizza</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #1a1a1a;
         }
         header {
-            background-color: #f8f9fa;
+            background-color: #ffffff;
             border-bottom: 3px solid #6923F4;
         }
         .logo-container {
@@ -24,11 +25,35 @@
         }
         h1, h2, h3 {
             color: #6923F4;
+            font-weight: 600;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #6923F4 0%, #A78BFA 100%);
+            color: white;
+            padding: 60px 0;
+        }
+        .hero-section h1, .hero-section h2, .hero-section h3 {
+            color: white;
+        }
+        .hero-section p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .section-purple {
+            background-color: #f8f5ff;
+            color: #1a1a1a;
+        }
+        .section-purple h1, .section-purple h2, .section-purple h3 {
+            color: #6923F4;
+        }
+        .section-white {
+            background-color: #ffffff;
+            color: #1a1a1a;
         }
         .btn-primary, .table-primary {
             --bs-btn-bg: #6923F4;
             --bs-btn-border-color: #6923F4;
             --bs-btn-hover-bg: #5a1fd9;
+            --bs-table-bg: #6923F4;
         }
         .section-padding {
             padding: 40px 0;
@@ -46,8 +71,15 @@
             padding: 20px 0;
             margin-top: 50px;
         }
+        footer a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        footer a:hover {
+            color: white;
+        }
         .table-dark {
-            --bs-table-bg: #333;
+            --bs-table-bg: #1a1a1a;
+            --bs-table-color: #ffffff;
         }
         .table-success {
             --bs-table-bg: #d1e7dd;
@@ -80,393 +112,411 @@
         </div>
     </header>
 
-    <main class="container section-padding">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="text-center mb-4">XplorPay Processing Analysis for Manhattan Pizza</h1>
-                <p class="text-center lead">
-                    <strong>Prepared By:</strong> Mark Zaw-Win, Account Executive, XplorPay<br>
-                    <strong>Date:</strong> December 1, 2025<br>
-                    <strong>Business Name:</strong> Manhattan Pizza<br>
-                    <strong>Month Replicated:</strong> October (actual numbers from merchant statement)<br>
-                    <strong>Source Statement:</strong> Merchant Services – Reston, VA
-                </p>
-            </div>
-        </div>
-
-        <section class="section-padding">
-            <h2 class="mb-4">SUMMARY – What You Paid With Your Current Processor</h2>
-            <p class="mb-3">Your October statement shows:</p>
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Category</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Gross Processing Volume</td>
-                            <td>$94,309.12</td>
-                        </tr>
-                        <tr>
-                            <td>Total Fees</td>
-                            <td>$2,588.48</td>
-                        </tr>
-                        <tr>
-                            <td>Interchange + Program Fees (card-brand cost)</td>
-                            <td>$1,961.24</td>
-                        </tr>
-                        <tr>
-                            <td>Processor Markup (their cut)</td>
-                            <td>$627.24</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="mt-3"><strong>This $627.24</strong> is the amount your current processor controls. This is what we are reducing.</p>
-        </section>
-
-        <section class="section-padding">
-            <h2 class="mb-4">YOUR NEW PRICING OPTIONS WITH XPLORPAY</h2>
-            <p>As an Account Executive at XplorPay, part of Xplor Technologies, I'm excited to present tailored payment solutions that leverage our full suite of offerings. XplorPay provides seamless, integrated payment processing designed for high-volume merchants like Manhattan Pizza. A key advantage is our native integration with Thrive POS systems—widely used in the restaurant industry. This ensures plug-and-play compatibility with zero downtime or operational disruptions. Your team can continue using Thrive POS exactly as before, with payments flowing effortlessly into your existing workflows, inventory management, and reporting tools. No retraining, no hardware changes, and no interruptions to your daily operations.</p>
-            <p>For online orders (pickup and delivery), XplorPay offers robust eCommerce solutions that integrate seamlessly with platforms like your ordering system, enabling compliant surcharges where applicable to offset costs and generate profit.</p>
-            <p><strong>Assumption:</strong> 77% of your gross processing volume ($72,618.02) comes from online orders (pickup and delivery), with the remaining 23% ($21,691.10) from card-present transactions (dine-in and to-go). This split is used for all calculations below. Of the 2,601 total transactions, approximately 2,003 are online and 598 are card-present.</p>
-            <p><strong>Note on Estimates:</strong> This analysis is based on a single month's worth of data from October. Monthly sales volume is variable, so the savings and profit figures provided are estimates and may fluctuate based on actual future volumes.</p>
-            <p>We offer three flexible options:<br>
-            <strong>Option 1:</strong> Interchange + 0.15% + $0.05/Transaction applied to all payments (card-present and online) for simplicity.<br>
-            <strong>Option 2:</strong> Interchange + 0.15% + $0.05/Transaction for card-present + 3.99% compliant surcharge for online orders.<br>
-            <strong>Option 3:</strong> Cash discounting (3.99% customer fee + 5% cash back) for card-present + 3.99% compliant surcharge for online orders.</p>
-            <p>All options eliminate junk fees and align with Xplor Technologies' commitment to transparent, merchant-friendly processing. Calculations incorporate the volume split and proposed online handling.</p>
-        </section>
-
-        <section class="section-padding">
-            <h2 class="mb-4">OPTION 1: Interchange + 0.15% + $0.05/Transaction (All Payments)</h2>
-
-            <h3 class="mt-4 mb-3">Pricing Details</h3>
-            <ul class="list-unstyled">
-                <li><strong>Rate:</strong> Interchange + 0.15% (applies to both card-present and online)</li>
-                <li><strong>Transaction Fee:</strong> $0.05 (applies to all transactions)</li>
-                <li><strong>Monthly Fees:</strong> None</li>
-                <li><strong>PCI Fees:</strong> None</li>
-                <li><strong>AVS Fees:</strong> None</li>
-                <li><strong>Batch Fees:</strong> None</li>
-                <li><strong>Network / Program / Gateway Junk Fees:</strong> None</li>
-            </ul>
-
-            <p class="mt-4"><strong>This eliminates EVERY ONE of these competitor charges</strong> (from your October statement):</p>
-            <ul>
-                <li>$19.99 monthly fee</li>
-                <li>$9.50 PCI fee</li>
-                <li>$5.99 ClientLine</li>
-                <li>$45.00 Visa CNP fee</li>
-                <li>$5.00 debit access fee</li>
-                <li>$121.30 AVS fees</li>
-                <li>$6.20 batch fees</li>
-                <li>All $0.04 transaction fees</li>
-                <li>All $0.0319 network access fees</li>
-                <li>All digital enablement fees</li>
-                <li>All license fees</li>
-                <li>All retry/misuse fees</li>
-            </ul>
-
-            <p class="mt-4">For online orders, this uses the same straightforward IC+ pricing—no surcharge, ensuring uniform processing across channels via XplorPay's integrated gateway.</p>
-
-            <h3 class="mt-4 mb-3">Cost Under XplorPay – Option 1</h3>
-            <p><strong>Markup Calculations:</strong></p>
-            <ul>
-                <li>0.15% × $94,309.12 = $141.46</li>
-                <li>2,601 transactions × $0.05 = $130.05</li>
-                <li><strong>Your total markup:</strong> $271.51</li>
-            </ul>
-            <p><strong>Total Fees With XplorPay:</strong><br>
-            Interchange ($1,961.24) + Your Markup ($271.51) = <strong>$2,232.75</strong></p>
-
-            <h3 class="mt-4 mb-3">Savings Under Option 1</h3>
-            <p><strong>Monthly Savings:</strong><br>
-            Current total: $2,588.48<br>
-            Your total: $2,232.75<br>
-            <strong>Savings = $355.73/month</strong></p>
-            <p><strong>Annual Savings:</strong><br>
-            $355.73 × 12 = <strong>$4,268.72/year</strong></p>
-            <p><strong>Processor Markup Reduction:</strong><br>
-            $355.73 ÷ $627.24 = <strong>56.7% LESS markup</strong></p>
-
-            <h3 class="mt-4 mb-3">Pros and Cons of Option 1</h3>
-            <div class="table-responsive">
-                <table class="table table-bordered pros-cons">
-                    <thead class="table-primary">
-                        <tr>
-                            <th>Pros</th>
-                            <th>Cons</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <ul>
-                                    <li>Simple, uniform pricing across all channels—easy to understand and budget for.</li>
-                                    <li>Immediate monthly savings of $355+ without changing customer behavior.</li>
-                                    <li>Seamless Thrive POS integration for in-person and eCommerce gateway for online—no operational changes.</li>
-                                    <li>Eliminates all junk fees, reducing administrative hassle.</li>
-                                    <li>Scalable with Xplor Technologies' full ecosystem (e.g., analytics, reporting).</li>
-                                </ul>
-                            </td>
-                            <td>
-                                <ul>
-                                    <li>No surcharge on online orders, so misses profit opportunity from high-volume eCommerce.</li>
-                                    <li>Still incurs markup on online (though low at 0.15% + $0.05).</li>
-                                    <li>Requires consistent volume to maximize savings.</li>
-                                    <li>Not as profitable as Options 2 or 3 for online-heavy businesses.</li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3 class="mt-4 mb-3">Option 1 – Executive Summary</h3>
-            <p>Manhattan Pizza reduces its processor’s cut by ~57%, lowers its effective rate across all payments, eliminates every junk fee on the current statement, and saves over $4,200/year—without changing anything about how you take payments. XplorPay's Thrive POS and eCommerce integrations ensure effortless implementation and smooth operations from day one.</p>
-        </section>
-
-        <section class="section-padding bg-light">
-            <h2 class="mb-4">OPTION 2: Interchange + 0.15% + $0.05/Transaction (Card-Present) + 3.99% Online Surcharge</h2>
-
-            <h3 class="mt-4 mb-3">Pricing Details (Card-Present)</h3>
-            <ul class="list-unstyled">
-                <li><strong>Rate:</strong> Interchange + 0.15%</li>
-                <li><strong>Transaction Fee:</strong> $0.05</li>
-                <li><strong>Monthly Fees:</strong> None</li>
-                <li><strong>PCI Fees:</strong> None</li>
-                <li><strong>AVS Fees:</strong> None</li>
-                <li><strong>Batch Fees:</strong> None</li>
-                <li><strong>Network / Program / Gateway Junk Fees:</strong> None</li>
-            </ul>
-
-            <p class="mt-4"><strong>This eliminates EVERY ONE of the competitor charges</strong> listed in Option 1 for card-present transactions.</p>
-
-            <h3 class="mt-4 mb-3">Online Orders: 3.99% Surcharge Program</h3>
-            <p>XplorPay's eCommerce gateway handles your online orders with a compliant 3.99% surcharge added at checkout. Customers see the fee transparently, and you receive the full order amount plus the surcharge revenue—no changes to your checkout flow.</p>
-            <ul>
-                <li><strong>Surcharge Revenue:</strong> 3.99% × $72,618.02 = <strong>$2,897.46</strong></li>
-                <li><strong>Interchange Cost (Online):</strong> $1,510.15</li>
-                <li><strong>Net Online Position:</strong> +$2,897.46 – $1,510.15 = <strong>+$1,387.31 profit</strong></li>
-            </ul>
-            <p>This replaces your current online processor's markup of ~$482.97 with a monthly profit of $1,387.31.</p>
-
-            <h3 class="mt-4 mb-3">Cost Under XplorPay – Option 2</h3>
-            <p><strong>Markup Calculations (Card-Present):</strong></p>
-            <ul>
-                <li>0.15% × $21,691.10 = $32.54</li>
-                <li>598 transactions × $0.05 = $29.90</li>
-                <li><strong>Your total card-present markup:</strong> $62.44</li>
-            </ul>
-            <p><strong>Total Effective Cost With XplorPay:</strong><br>
-            Card-Present (Interchange $451.09 + Markup $62.44) + Online Interchange $1,510.15 – Online Surcharge $2,897.46 = <strong>–$873.78 (profit)</strong></p>
-
-            <h3 class="mt-4 mb-3">Savings Under Option 2</h3>
-            <p><strong>Monthly Savings:</strong><br>
-            Current total: $2,588.48<br>
-            New effective: –$873.78 (profit)<br>
-            <strong>Savings = $3,462.26/month</strong> (includes profit)</p>
-            <p><strong>Annual Savings:</strong><br>
-            $3,462.26 × 12 = <strong>$41,547.15/year</strong></p>
-            <p><strong>Card-Present Processor Markup Reduction:</strong><br>
-            Current card-present markup: $144.27 → New: $62.44<br>
-            <strong>56.7% LESS markup</strong></p>
-
-            <h3 class="mt-4 mb-3">Pros and Cons of Option 2</h3>
-            <div class="table-responsive">
-                <table class="table table-bordered pros-cons">
-                    <thead class="table-primary">
-                        <tr>
-                            <th>Pros</th>
-                            <th>Cons</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <ul>
-                                    <li>Low markup on card-present + turns 77% online volume into $1,387 monthly profit.</li>
-                                    <li>Significant savings of $3,462/month without altering in-person behavior.</li>
-                                    <li>Seamless Thrive POS for in-person and eCommerce integration for online—no ops issues.</li>
-                                    <li>Eliminates all junk fees; scalable with XplorPay's rebate tracking.</li>
-                                    <li>Balances simplicity and profitability for mixed channels.</li>
-                                </ul>
-                            </td>
-                            <td>
-                                <ul>
-                                    <li>Small markup remains on card-present (though 57% less than current).</li>
-                                    <li>Online surcharge may see minor customer sensitivity (fully compliant and transparent).</li>
-                                    <li>Requires volume consistency for max savings.</li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3 class="mt-4 mb-3">Option 2 – Executive Summary</h3>
-            <p>Manhattan Pizza slashes card-present markup by ~57%, eliminates junk fees, and generates $1,387 monthly profit from online surcharges—saving over $41,500/year. XplorPay's integrated Thrive POS and eCommerce solutions ensure zero disruptions while optimizing both channels.</p>
-        </section>
-
-        <section class="section-padding">
-            <h2 class="mb-4">OPTION 3: Cash Discounting (3.99% Customer Fee + 5% Cash Back, Card-Present) + 3.99% Online Surcharge</h2>
-
-            <h3 class="mt-4 mb-3">What This Program Does (Card-Present)</h3>
-            <ol>
-                <li>Charge a 3.99% non-cash adjustment to customers paying with cards (fully compliant with cash discount rules).</li>
-                <li>Customers paying cash avoid the fee, encouraging faster transactions.</li>
-                <li>Receive 5% cash back into your business from the fee revenue.</li>
-                <li>Net processing cost becomes near $0—often net positive.</li>
-            </ol>
-            <p>This program is powered by XplorPay's compliant cash discounting engine, integrated directly with Thrive POS for automatic fee application at checkout—no manual adjustments needed.</p>
-
-            <h3 class="mt-4 mb-3">Online Orders: 3.99% Surcharge Program</h3>
-            <p>(Same as Option 2: <strong>$1,387.31 monthly profit</strong> from online orders via XplorPay's eCommerce solutions.)</p>
-
-            <h3 class="mt-4 mb-3">Calculating Cash Discount Financials (Card-Present)</h3>
-            <ol>
-                <li><strong>Fee Revenue Collected From Customers:</strong><br>3.99% × $21,691.10 = <strong>$865.47</strong> collected at checkout.</li>
-                <li><strong>Your Actual Processing Cost (Interchange Only):</strong><br>Interchange remains <strong>$451.09</strong> (no markup, no per-transaction fees).</li>
-                <li><strong>Your Cash-Back Rebate:</strong><br>5% × $865.47 = <strong>$43.27</strong> paid directly back to you.</li>
-            </ol>
-
-            <h3 class="mt-4 mb-3">Your Net Effective Cost</h3>
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Item</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Card-Present Interchange Cost</td>
-                            <td>–$451.09</td>
-                        </tr>
-                        <tr>
-                            <td>Card-Present Customer Fee Revenue +3.99%</td>
-                            <td>+$865.47</td>
-                        </tr>
-                        <tr>
-                            <td>5% Cash-Back to Merchant (Card-Present)</td>
-                            <td>+$43.27</td>
-                        </tr>
-                        <tr class="table-success">
-                            <td><strong>Net Card-Present Position</strong></td>
-                            <td><strong>+$457.66</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p><strong>Total Net Position (Including Online Profit):</strong> +$457.66 (card-present) + $1,387.31 (online) = <strong>+$1,844.97 profit</strong> for the month.</p>
-
-            <h3 class="mt-4 mb-3">Savings vs. Current Processor (Cash Discount Option)</h3>
-            <p><strong>Current Total Fees:</strong> $2,588.48</p>
-            <p><strong>New Net Fees:</strong> –$1,844.97 (you profit)</p>
-            <p><strong>Total Improvement:</strong><br>
-            $2,588.48 (old cost) + $1,844.97 (new profit) = <strong>$4,433.45 monthly improvement</strong></p>
-            <p><strong>Annual Impact:</strong><br>
-            $4,433.45 × 12 = <strong>$53,201.37 per year</strong></p>
-
-            <h3 class="mt-4 mb-3">Pros and Cons of Option 3</h3>
-            <div class="table-responsive">
-                <table class="table table-bordered pros-cons">
-                    <thead class="table-primary">
-                        <tr>
-                            <th>Pros</th>
-                            <th>Cons</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <ul>
-                                    <li>Transforms all channels into profit: $1,845+ monthly gain total.</li>
-                                    <li>100% fee elimination + $53K annual profit—perfect for online-heavy ops.</li>
-                                    <li>Fully automated via Thrive POS and eCommerce—no ops issues.</li>
-                                    <li>Compliant/scalable with XplorPay's tracking for rebates and surcharges.</li>
-                                    <li>Speeds up in-person lines via cash incentive.</li>
-                                </ul>
-                            </td>
-                            <td>
-                                <ul>
-                                    <li>Potential pushback on visible fees (mitigated by cash option in-person and transparency online).</li>
-                                    <li>May encourage more cash in-person, slightly reducing card volume.</li>
-                                    <li>Requires signage/comms for compliance (Xplor provides templates).</li>
-                                    <li>Higher setup for signage (minimal with our support).</li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3 class="mt-4 mb-3">Option 3 – Executive Summary</h3>
-            <p>Instead of paying $2,588 each month, Manhattan Pizza <strong>profits $1,845</strong> across card-present and online channels. Eliminate 100% of markup, remove all fees, and generate over <strong>$53,000/year</strong> in new margin. Our seamless Thrive POS and eCommerce integrations handle everything automatically, with no impact on your restaurant's flow.</p>
-        </section>
-
-        <section class="section-padding">
-            <h2 class="mb-4">FINAL SIDE-BY-SIDE COMPARISON</h2>
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Program</th>
-                            <th>Your Monthly Cost</th>
-                            <th>Your Annual Cost</th>
-                            <th>Monthly Savings vs Current</th>
-                            <th>Annual Savings vs Current</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="table-warning">
-                            <td><strong>Current Processor</strong></td>
-                            <td>$2,588.48</td>
-                            <td>$31,061.76</td>
-                            <td>—</td>
-                            <td>—</td>
-                        </tr>
-                        <tr>
-                            <td><strong>XplorPay Option 1: IC+ 0.15% + $0.05 (All)</strong></td>
-                            <td>$2,232.75</td>
-                            <td>$26,793.00</td>
-                            <td>$355.73</td>
-                            <td>$4,268.72</td>
-                        </tr>
-                        <tr class="table-success">
-                            <td><strong>XplorPay Option 2: IC+ 0.15% + $0.05 (Card-Present) + 3.99% Online Surcharge</strong></td>
-                            <td>–$873.78 (profit)</td>
-                            <td>–$10,485.36 (profit)</td>
-                            <td>$3,462.26</td>
-                            <td>$41,547.15</td>
-                        </tr>
-                        <tr class="table-success">
-                            <td><strong>XplorPay Option 3: Cash Discount 3.99% w/ 5% Rebate (Card-Present) + 3.99% Online Surcharge</strong></td>
-                            <td>–$1,844.97 (profit)</td>
-                            <td>–$22,139.64 (profit)</td>
-                            <td>$4,433.45</td>
-                            <td>$53,201.37</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <main class="container-fluid">
+        <section class="hero-section">
+            <div class="container section-padding">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="mb-4">XplorPay Processing Analysis for Manhattan Pizza</h1>
+                        <p class="lead">
+                            <strong>Prepared By:</strong> Mark Zaw-Win, Account Executive, XplorPay<br>
+                            <strong>Date:</strong> December 1, 2025<br>
+                            <strong>Business Name:</strong> Manhattan Pizza<br>
+                            <strong>Month Replicated:</strong> October (actual numbers from merchant statement)<br>
+                            <strong>Source Statement:</strong> Merchant Services – Reston, VA
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="section-padding text-center">
-            <h2 class="mb-4">Next Steps</h2>
-            <p class="lead">I'm here to customize this further or walk through a demo of our Thrive POS and eCommerce integrations. Let's schedule a quick call to get Manhattan Pizza saving (or profiting) today—contact me at mark.zaw-win@xplortechnologies.com. With XplorPay, powered by Xplor Technologies, you're not just processing payments; you're optimizing your entire operation.</p>
-            <p class="mt-4"><strong>Thank you for considering XplorPay—let's make payments work for you!</strong></p>
+        <section class="section-white section-padding">
+            <div class="container">
+                <h2 class="mb-4">SUMMARY – What You Paid With Your Current Processor</h2>
+                <p class="mb-3">Your October statement shows:</p>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Category</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Gross Processing Volume</td>
+                                <td>$94,309.12</td>
+                            </tr>
+                            <tr>
+                                <td>Total Fees</td>
+                                <td>$2,588.48</td>
+                            </tr>
+                            <tr>
+                                <td>Interchange + Program Fees (card-brand cost)</td>
+                                <td>$1,961.24</td>
+                            </tr>
+                            <tr>
+                                <td>Processor Markup (their cut)</td>
+                                <td>$627.24</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-3"><strong>This $627.24</strong> is the amount your current processor controls. This is what we are reducing.</p>
+            </div>
+        </section>
+
+        <section class="section-purple section-padding">
+            <div class="container">
+                <h2 class="mb-4">YOUR NEW PRICING OPTIONS WITH XPLORPAY</h2>
+                <p>As an Account Executive at XplorPay, part of Xplor Technologies, I'm excited to present tailored payment solutions that leverage our full suite of offerings. XplorPay provides seamless, integrated payment processing designed for high-volume merchants like Manhattan Pizza. A key advantage is our native integration with Thrive POS systems—widely used in the restaurant industry. This ensures plug-and-play compatibility with zero downtime or operational disruptions. Your team can continue using Thrive POS exactly as before, with payments flowing effortlessly into your existing workflows, inventory management, and reporting tools. No retraining, no hardware changes, and no interruptions to your daily operations.</p>
+                <p>For online orders (pickup and delivery), XplorPay offers robust eCommerce solutions that integrate seamlessly with platforms like your ordering system, enabling compliant surcharges where applicable to offset costs and generate profit.</p>
+                <p><strong>Assumption:</strong> 77% of your gross processing volume ($72,618.02) comes from online orders (pickup and delivery), with the remaining 23% ($21,691.10) from card-present transactions (dine-in and to-go). This split is used for all calculations below. Of the 2,601 total transactions, approximately 2,003 are online and 598 are card-present.</p>
+                <p><strong>Note on Estimates:</strong> This analysis is based on a single month's worth of data from October. Monthly sales volume is variable, so the savings and profit figures provided are estimates and may fluctuate based on actual future volumes.</p>
+                <p>We offer three flexible options:<br>
+                <strong>Option 1:</strong> Interchange + 0.15% + $0.05/Transaction applied to all payments (card-present and online) for simplicity.<br>
+                <strong>Option 2:</strong> Interchange + 0.15% + $0.05/Transaction for card-present + 3.99% compliant surcharge for online orders.<br>
+                <strong>Option 3:</strong> Cash discounting (3.99% customer fee + 5% cash back) for card-present + 3.99% compliant surcharge for online orders.</p>
+                <p>All options eliminate junk fees and align with Xplor Technologies' commitment to transparent, merchant-friendly processing. Calculations incorporate the volume split and proposed online handling.</p>
+            </div>
+        </section>
+
+        <section class="section-white section-padding">
+            <div class="container">
+                <h2 class="mb-4">OPTION 1: Interchange + 0.15% + $0.05/Transaction (All Payments)</h2>
+
+                <h3 class="mt-4 mb-3">Pricing Details</h3>
+                <ul class="list-unstyled">
+                    <li><strong>Rate:</strong> Interchange + 0.15% (applies to both card-present and online)</li>
+                    <li><strong>Transaction Fee:</strong> $0.05 (applies to all transactions)</li>
+                    <li><strong>Monthly Fees:</strong> None</li>
+                    <li><strong>PCI Fees:</strong> None</li>
+                    <li><strong>AVS Fees:</strong> None</li>
+                    <li><strong>Batch Fees:</strong> None</li>
+                    <li><strong>Network / Program / Gateway Junk Fees:</strong> None</li>
+                </ul>
+
+                <p class="mt-4"><strong>This eliminates EVERY ONE of these competitor charges</strong> (from your October statement):</p>
+                <ul>
+                    <li>$19.99 monthly fee</li>
+                    <li>$9.50 PCI fee</li>
+                    <li>$5.99 ClientLine</li>
+                    <li>$45.00 Visa CNP fee</li>
+                    <li>$5.00 debit access fee</li>
+                    <li>$121.30 AVS fees</li>
+                    <li>$6.20 batch fees</li>
+                    <li>All $0.04 transaction fees</li>
+                    <li>All $0.0319 network access fees</li>
+                    <li>All digital enablement fees</li>
+                    <li>All license fees</li>
+                    <li>All retry/misuse fees</li>
+                </ul>
+
+                <p class="mt-4">For online orders, this uses the same straightforward IC+ pricing—no surcharge, ensuring uniform processing across channels via XplorPay's integrated gateway.</p>
+
+                <h3 class="mt-4 mb-3">Cost Under XplorPay – Option 1</h3>
+                <p><strong>Markup Calculations:</strong></p>
+                <ul>
+                    <li>0.15% × $94,309.12 = $141.46</li>
+                    <li>2,601 transactions × $0.05 = $130.05</li>
+                    <li><strong>Your total markup:</strong> $271.51</li>
+                </ul>
+                <p><strong>Total Fees With XplorPay:</strong><br>
+                Interchange ($1,961.24) + Your Markup ($271.51) = <strong>$2,232.75</strong></p>
+
+                <h3 class="mt-4 mb-3">Savings Under Option 1</h3>
+                <p><strong>Monthly Savings:</strong><br>
+                Current total: $2,588.48<br>
+                Your total: $2,232.75<br>
+                <strong>Savings = $355.73/month</strong></p>
+                <p><strong>Annual Savings:</strong><br>
+                $355.73 × 12 = <strong>$4,268.72/year</strong></p>
+                <p><strong>Processor Markup Reduction:</strong><br>
+                $355.73 ÷ $627.24 = <strong>56.7% LESS markup</strong></p>
+
+                <h3 class="mt-4 mb-3">Pros and Cons of Option 1</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered pros-cons">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Pros</th>
+                                <th>Cons</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li>Simple, uniform pricing across all channels—easy to understand and budget for.</li>
+                                        <li>Immediate monthly savings of $355+ without changing customer behavior.</li>
+                                        <li>Seamless Thrive POS integration for in-person and eCommerce gateway for online—no operational changes.</li>
+                                        <li>Eliminates all junk fees, reducing administrative hassle.</li>
+                                        <li>Scalable with Xplor Technologies' full ecosystem (e.g., analytics, reporting).</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>No surcharge on online orders, so misses profit opportunity from high-volume eCommerce.</li>
+                                        <li>Still incurs markup on online (though low at 0.15% + $0.05).</li>
+                                        <li>Requires consistent volume to maximize savings.</li>
+                                        <li>Not as profitable as Options 2 or 3 for online-heavy businesses.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="mt-4 mb-3">Option 1 – Executive Summary</h3>
+                <p>Manhattan Pizza reduces its processor’s cut by ~57%, lowers its effective rate across all payments, eliminates every junk fee on the current statement, and saves over $4,200/year—without changing anything about how you take payments. XplorPay's Thrive POS and eCommerce integrations ensure effortless implementation and smooth operations from day one.</p>
+            </div>
+        </section>
+
+        <section class="section-purple section-padding">
+            <div class="container">
+                <h2 class="mb-4">OPTION 2: Interchange + 0.15% + $0.05/Transaction (Card-Present) + 3.99% Online Surcharge</h2>
+
+                <h3 class="mt-4 mb-3">Pricing Details (Card-Present)</h3>
+                <ul class="list-unstyled">
+                    <li><strong>Rate:</strong> Interchange + 0.15%</li>
+                    <li><strong>Transaction Fee:</strong> $0.05</li>
+                    <li><strong>Monthly Fees:</strong> None</li>
+                    <li><strong>PCI Fees:</strong> None</li>
+                    <li><strong>AVS Fees:</strong> None</li>
+                    <li><strong>Batch Fees:</strong> None</li>
+                    <li><strong>Network / Program / Gateway Junk Fees:</strong> None</li>
+                </ul>
+
+                <p class="mt-4"><strong>This eliminates EVERY ONE of the competitor charges</strong> listed in Option 1 for card-present transactions.</p>
+
+                <h3 class="mt-4 mb-3">Online Orders: 3.99% Surcharge Program</h3>
+                <p>XplorPay's eCommerce gateway handles your online orders with a compliant 3.99% surcharge added at checkout. Customers see the fee transparently, and you receive the full order amount plus the surcharge revenue—no changes to your checkout flow.</p>
+                <ul>
+                    <li><strong>Surcharge Revenue:</strong> 3.99% × $72,618.02 = <strong>$2,897.46</strong></li>
+                    <li><strong>Interchange Cost (Online):</strong> $1,510.15</li>
+                    <li><strong>Net Online Position:</strong> +$2,897.46 – $1,510.15 = <strong>+$1,387.31 profit</strong></li>
+                </ul>
+                <p>This replaces your current online processor's markup of ~$482.97 with a monthly profit of $1,387.31.</p>
+
+                <h3 class="mt-4 mb-3">Cost Under XplorPay – Option 2</h3>
+                <p><strong>Markup Calculations (Card-Present):</strong></p>
+                <ul>
+                    <li>0.15% × $21,691.10 = $32.54</li>
+                    <li>598 transactions × $0.05 = $29.90</li>
+                    <li><strong>Your total card-present markup:</strong> $62.44</li>
+                </ul>
+                <p><strong>Total Effective Cost With XplorPay:</strong><br>
+                Card-Present (Interchange $451.09 + Markup $62.44) + Online Interchange $1,510.15 – Online Surcharge $2,897.46 = <strong>–$873.78 (profit)</strong></p>
+
+                <h3 class="mt-4 mb-3">Savings Under Option 2</h3>
+                <p><strong>Monthly Savings:</strong><br>
+                Current total: $2,588.48<br>
+                New effective: –$873.78 (profit)<br>
+                <strong>Savings = $3,462.26/month</strong> (includes profit)</p>
+                <p><strong>Annual Savings:</strong><br>
+                $3,462.26 × 12 = <strong>$41,547.15/year</strong></p>
+                <p><strong>Card-Present Processor Markup Reduction:</strong><br>
+                Current card-present markup: $144.27 → New: $62.44<br>
+                <strong>56.7% LESS markup</strong></p>
+
+                <h3 class="mt-4 mb-3">Pros and Cons of Option 2</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered pros-cons">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Pros</th>
+                                <th>Cons</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li>Low markup on card-present + turns 77% online volume into $1,387 monthly profit.</li>
+                                        <li>Significant savings of $3,462/month without altering in-person behavior.</li>
+                                        <li>Seamless Thrive POS for in-person and eCommerce integration for online—no ops issues.</li>
+                                        <li>Eliminates all junk fees; scalable with XplorPay's rebate tracking.</li>
+                                        <li>Balances simplicity and profitability for mixed channels.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Small markup remains on card-present (though 57% less than current).</li>
+                                        <li>Online surcharge may see minor customer sensitivity (fully compliant and transparent).</li>
+                                        <li>Requires volume consistency for max savings.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="mt-4 mb-3">Option 2 – Executive Summary</h3>
+                <p>Manhattan Pizza slashes card-present markup by ~57%, eliminates junk fees, and generates $1,387 monthly profit from online surcharges—saving over $41,500/year. XplorPay's integrated Thrive POS and eCommerce solutions ensure zero disruptions while optimizing both channels.</p>
+            </div>
+        </section>
+
+        <section class="section-white section-padding">
+            <div class="container">
+                <h2 class="mb-4">OPTION 3: Cash Discounting (3.99% Customer Fee + 5% Cash Back, Card-Present) + 3.99% Online Surcharge</h2>
+
+                <h3 class="mt-4 mb-3">What This Program Does (Card-Present)</h3>
+                <ol>
+                    <li>Charge a 3.99% non-cash adjustment to customers paying with cards (fully compliant with cash discount rules).</li>
+                    <li>Customers paying cash avoid the fee, encouraging faster transactions.</li>
+                    <li>Receive 5% cash back into your business from the fee revenue.</li>
+                    <li>Net processing cost becomes near $0—often net positive.</li>
+                </ol>
+                <p>This program is powered by XplorPay's compliant cash discounting engine, integrated directly with Thrive POS for automatic fee application at checkout—no manual adjustments needed.</p>
+
+                <h3 class="mt-4 mb-3">Online Orders: 3.99% Surcharge Program</h3>
+                <p>(Same as Option 2: <strong>$1,387.31 monthly profit</strong> from online orders via XplorPay's eCommerce solutions.)</p>
+
+                <h3 class="mt-4 mb-3">Calculating Cash Discount Financials (Card-Present)</h3>
+                <ol>
+                    <li><strong>Fee Revenue Collected From Customers:</strong><br>3.99% × $21,691.10 = <strong>$865.47</strong> collected at checkout.</li>
+                    <li><strong>Your Actual Processing Cost (Interchange Only):</strong><br>Interchange remains <strong>$451.09</strong> (no markup, no per-transaction fees).</li>
+                    <li><strong>Your Cash-Back Rebate:</strong><br>5% × $865.47 = <strong>$43.27</strong> paid directly back to you.</li>
+                </ol>
+
+                <h3 class="mt-4 mb-3">Your Net Effective Cost</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Item</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Card-Present Interchange Cost</td>
+                                <td>–$451.09</td>
+                            </tr>
+                            <tr>
+                                <td>Card-Present Customer Fee Revenue +3.99%</td>
+                                <td>+$865.47</td>
+                            </tr>
+                            <tr>
+                                <td>5% Cash-Back to Merchant (Card-Present)</td>
+                                <td>+$43.27</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong>Net Card-Present Position</strong></td>
+                                <td><strong>+$457.66</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Total Net Position (Including Online Profit):</strong> +$457.66 (card-present) + $1,387.31 (online) = <strong>+$1,844.97 profit</strong> for the month.</p>
+
+                <h3 class="mt-4 mb-3">Savings vs. Current Processor (Cash Discount Option)</h3>
+                <p><strong>Current Total Fees:</strong> $2,588.48</p>
+                <p><strong>New Net Fees:</strong> –$1,844.97 (you profit)</p>
+                <p><strong>Total Improvement:</strong><br>
+                $2,588.48 (old cost) + $1,844.97 (new profit) = <strong>$4,433.45 monthly improvement</strong></p>
+                <p><strong>Annual Impact:</strong><br>
+                $4,433.45 × 12 = <strong>$53,201.37 per year</strong></p>
+
+                <h3 class="mt-4 mb-3">Pros and Cons of Option 3</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered pros-cons">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Pros</th>
+                                <th>Cons</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li>Transforms all channels into profit: $1,845+ monthly gain total.</li>
+                                        <li>100% fee elimination + $53K annual profit—perfect for online-heavy ops.</li>
+                                        <li>Fully automated via Thrive POS and eCommerce—no ops issues.</li>
+                                        <li>Compliant/scalable with XplorPay's tracking for rebates and surcharges.</li>
+                                        <li>Speeds up in-person lines via cash incentive.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Potential pushback on visible fees (mitigated by cash option in-person and transparency online).</li>
+                                        <li>May encourage more cash in-person, slightly reducing card volume.</li>
+                                        <li>Requires signage/comms for compliance (Xplor provides templates).</li>
+                                        <li>Higher setup for signage (minimal with our support).</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="mt-4 mb-3">Option 3 – Executive Summary</h3>
+                <p>Instead of paying $2,588 each month, Manhattan Pizza <strong>profits $1,845</strong> across card-present and online channels. Eliminate 100% of markup, remove all fees, and generate over <strong>$53,000/year</strong> in new margin. Our seamless Thrive POS and eCommerce integrations handle everything automatically, with no impact on your restaurant's flow.</p>
+            </div>
+        </section>
+
+        <section class="section-purple section-padding">
+            <div class="container">
+                <h2 class="mb-4">FINAL SIDE-BY-SIDE COMPARISON</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Program</th>
+                                <th>Your Monthly Cost</th>
+                                <th>Your Annual Cost</th>
+                                <th>Monthly Savings vs Current</th>
+                                <th>Annual Savings vs Current</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-warning">
+                                <td><strong>Current Processor</strong></td>
+                                <td>$2,588.48</td>
+                                <td>$31,061.76</td>
+                                <td>—</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XplorPay Option 1: IC+ 0.15% + $0.05 (All)</strong></td>
+                                <td>$2,232.75</td>
+                                <td>$26,793.00</td>
+                                <td>$355.73</td>
+                                <td>$4,268.72</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong>XplorPay Option 2: IC+ 0.15% + $0.05 (Card-Present) + 3.99% Online Surcharge</strong></td>
+                                <td>–$873.78 (profit)</td>
+                                <td>–$10,485.36 (profit)</td>
+                                <td>$3,462.26</td>
+                                <td>$41,547.15</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong>XplorPay Option 3: Cash Discount 3.99% w/ 5% Rebate (Card-Present) + 3.99% Online Surcharge</strong></td>
+                                <td>–$1,844.97 (profit)</td>
+                                <td>–$22,139.64 (profit)</td>
+                                <td>$4,433.45</td>
+                                <td>$53,201.37</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-white section-padding text-center">
+            <div class="container">
+                <h2 class="mb-4">Next Steps</h2>
+                <p class="lead">I'm here to customize this further or walk through a demo of our Thrive POS and eCommerce integrations. Let's schedule a quick call to get Manhattan Pizza saving (or profiting) today—contact me at mark.zaw-win@xplortechnologies.com. With XplorPay, powered by Xplor Technologies, you're not just processing payments; you're optimizing your entire operation.</p>
+                <p class="mt-4"><strong>Thank you for considering XplorPay—let's make payments work for you!</strong></p>
+            </div>
         </section>
     </main>
 
     <footer class="text-center">
         <div class="container">
-            <p class="mb-0">Mark Zaw-Win | Account Executive, XplorPay | mark.zaw-win@xplortechnologies.com | <a href="https://xplorpay.com" class="text-white">xplorpay.com</a></p>
+            <p class="mb-0">Mark Zaw-Win | Account Executive, XplorPay | mark.zaw-win@xplortechnologies.com | <a href="https://xplorpay.com">xplorpay.com</a></p>
             <p class="mt-2 small">© 2025 Vigilant Profit Solutions, LLC & XplorPay. All rights reserved.</p>
         </div>
     </footer>
