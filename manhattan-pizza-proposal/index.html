@@ -1,260 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="robots" content="noindex, nofollow"/>
-  <title>Xplor Pay Proposal – Manhattan Pizza | Vigilant Profit Solutions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #333333;
-      --dark: #1a1a1a;
-      --light: #f8f9fa;
-      --gray: #6c757d;
-      --success: #28a745;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #fff;
-      color: var(--dark);
-      line-height: 1.6;
-      padding: 2rem;
-    }
-    .container { max-width: 960px; margin: auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-    
-    /* GRAYSCALE HEADER */
-    header {
-      background: linear-gradient(135deg, #555555, #333333);
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-      filter: grayscale(100%);
-    }
-    .logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 3rem;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .logos img {
-      height: 250px !important;
-      width: auto;
-      max-width: 320px;
-      object-fit: contain;
-      filter: grayscale(100%);
-    }
-    header h1 { 
-      font-size: 2.4rem; 
-      margin: 0.75rem 0; 
-      color: white;
-    }
-    header p { 
-      font-size: 1.1rem; 
-      opacity: 0.95; 
-      color: #e0e0e0;
-    }
-    .confidential {
-      background: #fff3cd; color: #856404; padding: 0.75rem; text-align: center; font-weight: 600; font-size: 0.9rem;
-    }
-    section { padding: 2rem; }
-    h2 { color: #333; border-bottom: 2px solid #e3e6f0; padding-bottom: 0.5rem; margin-bottom: 1rem; font-size: 1.5rem; }
-    table {
-      width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;
-    }
-    th, td {
-      border: 1px solid #dee2e6; padding: 0.75rem; text-align: left;
-    }
-    th {
-      background: #f1f3f9; color: var(--dark); font-weight: 600;
-    }
-    tr:nth-child(even) { background: #f8f9fa; }
-    .highlight { background: #e6f0ff !important; font-weight: 600; }
-    .savings { color: var(--success); font-weight: 700; }
-    .roi-box {
-      background: linear-gradient(135deg, #d4edda, #c3e6cb); padding: 1.5rem; border-radius: 10px; text-align: center; margin: 1.5rem 0;
-    }
-    .roi-box h3 { color: var(--success); margin-bottom: 0.5rem; }
-    .cta {
-      background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem;
-    }
-    .cta a {
-      background: white; color: #333; padding: 0.75rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 1rem;
-    }
-    footer {
-      text-align: center; padding: 1.5rem; background: #f1f3f9; color: var(--gray); font-size: 0.9rem;
-    }
-    @media (max-width: 768px) {
-      body { padding: 1rem; }
-      header { padding: 2rem 1rem; }
-      .logos img { height: 120px !important; }
-      header h1 { font-size: 1.8rem; }
-      table { font-size: 0.85rem; }
-      th, td { padding: 0.5rem; }
-    }
-    @media print {
-      body { padding: 0; }
-      .container { box-shadow: none; }
-      .cta, .confidential { display: none; }
-      header { filter: none; background: #f5f5f5 !important; color: #000 !important; }
-      .logos img { height: 200px !important; filter: none !important; }
-      header h1, header p { color: #000 !important; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XplorPay Merchant Proposal for Manhattan Pizza</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background-color: #f8f9fa;
+            border-bottom: 3px solid #007bff;
+        }
+        .logo-container {
+            text-align: center;
+        }
+        .logo-container img {
+            max-height: 60px;
+            margin: 0 20px;
+        }
+        h1, h2, h3 {
+            color: #007bff;
+        }
+        .section-padding {
+            padding: 40px 0;
+        }
+        table {
+            font-size: 0.95em;
+        }
+        .pros-cons td {
+            vertical-align: top;
+            padding: 15px;
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            .logo-container img {
+                margin: 10px 0;
+                max-width: 80%;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header class="py-4">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-5 col-12 logo-container">
+                    <img src="https://xplorpay.com/wp-content/uploads/2023/07/xplor-pay-logo.png" alt="XplorPay Logo" class="img-fluid">
+                </div>
+                <div class="col-md-2 col-12 text-center d-none d-md-block">
+                    <h4 class="mb-0 text-muted">&amp;</h4>
+                </div>
+                <div class="col-md-5 col-12 logo-container">
+                    <img src="https://via.placeholder.com/250x60/4A90E2/FFFFFF?text=Vigilant+Profit+Solutions+LLC" alt="Vigilant Profit Solutions, LLC Logo" class="img-fluid">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <h5 class="text-muted mb-0">Co-Branded Payment Solutions Partnership</h5>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<div class="container">
-  <div class="confidential">
-    CONFIDENTIAL – FOR MANHATTAN PIZZA EXECUTIVE LEADERSHIP ONLY
-  </div>
+    <main class="container section-padding">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mb-4">XplorPay Merchant Proposal for Manhattan Pizza</h1>
+                <p class="text-center lead">
+                    <strong>Prepared By:</strong> [Your Name], Account Executive, XplorPay<br>
+                    <strong>Date:</strong> December 1, 2025<br>
+                    <strong>Business Name:</strong> Manhattan Pizza<br>
+                    <strong>Month Replicated:</strong> October (actual numbers from merchant statement)<br>
+                    <strong>Source Statement:</strong> Merchant Services – Reston, VA
+                </p>
+            </div>
+        </div>
 
-  <header>
-    <div class="logos">
-      <img src="vps-logo.png" alt="Vigilant Profit Solutions Logo">
-      <img src="xplorpay-logo.svg" alt="Xplor Pay Logo">
-    </div>
-    <h1>Xplor Pay Proposal</h1>
-    <p><strong>Prepared for:</strong> Manhattan Pizza Company, LLC<br>
-    <strong>Prepared by:</strong> Mark Zaw-Win, Account Executive, Xplor Pay<br>
-    <strong>Via:</strong> Vigilant Profit Solutions LLC<br>
-    <strong>Date:</strong> November 13, 2025</p>
-  </header>
+        <section class="section-padding">
+            <h2 class="mb-4">SUMMARY – What You Paid With Your Current Processor</h2>
+            <p class="mb-3">Your October statement shows:</p>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gross Processing Volume</td>
+                            <td>$94,309.12</td>
+                        </tr>
+                        <tr>
+                            <td>Total Fees</td>
+                            <td>$2,588.48</td>
+                        </tr>
+                        <tr>
+                            <td>Interchange + Program Fees (card-brand cost)</td>
+                            <td>$1,961.24</td>
+                        </tr>
+                        <tr>
+                            <td>Processor Markup (their cut)</td>
+                            <td>$627.24</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-3"><strong>This $627.24</strong> is the amount your current processor controls. This is what we are reducing.</p>
+        </section>
 
-  <section>
-    <h2>Executive Summary</h2>
-    <p>Manhattan Pizza operates a high-performing, multi-location Italian QSR chain with <strong>$1.2 million in annual gross revenue per location</strong> and <strong>100% card-present + digital payment volume</strong> — a modern payment footprint that demands precision, speed, and scalability.</p>
-    <p>Your current stack — <strong>Thrive POS + Cygnus Payments</strong> — delivers core functionality but introduces documented friction in <strong>training complexity, support latency, multi-location reconciliation, and payment cost opacity</strong>. These inefficiencies compound across 8+ locations, creating <strong>$45,000–$65,000 in annual recoverable opportunity cost per store</strong>.</p>
-    <p><strong>Xplor Pay</strong>, delivered through <strong>Vigilant Profit Solutions</strong>, is purpose-built for Italian QSRs like yours. We integrate natively with Thrive hardware (zero rip-and-replace), reduce effective processing costs by <strong>19–27%</strong>, and deliver <strong>real-time omni-channel intelligence</strong> that turns your SMS/email loyalty engine into a <strong>predictive revenue driver</strong>.</p>
-    <p>This proposal quantifies your current pain points, benchmarks them against <strong>peer Italian QSRs</strong>, and presents a <strong>90-day risk-free migration path</strong> with <strong>guaranteed ROI within 6 months</strong>.</p>
-  </section>
+        <section class="section-padding">
+            <h2 class="mb-4">YOUR NEW PRICING OPTIONS WITH XPLORPAY</h2>
+            <p>As an Account Executive at XplorPay, part of Xplor Technologies, I'm excited to present tailored payment solutions that leverage our full suite of offerings. XplorPay provides seamless, integrated payment processing designed for high-volume merchants like Manhattan Pizza. A key advantage is our native integration with Thrive POS systems—widely used in the restaurant industry. This ensures plug-and-play compatibility with zero downtime or operational disruptions. Your team can continue using Thrive POS exactly as before, with payments flowing effortlessly into your existing workflows, inventory management, and reporting tools. No retraining, no hardware changes, and no interruptions to your daily operations.</p>
+            <p>We offer two flexible options below: a straightforward markup-based plan (Option 1) for simplicity and immediate savings, or a cash discounting program (Option 2) for maximum profitability. Both eliminate junk fees and align with Xplor Technologies' commitment to transparent, merchant-friendly processing.</p>
+        </section>
 
-  <section>
-    <h2>Section 1: Current State Analysis – Manhattan Pizza</h2>
-    <table>
-      <tr><th>Metric</th><th>Manhattan Pizza (Per Store)</th><th>Source / Assumption</th></tr>
-      <tr><td>Annual Gross Revenue</td><td>$1,200,000</td><td>Client-provided</td></tr>
-      <tr><td>Card Volume</td><td>100% ($1.2M)</td><td>Client-provided</td></tr>
-      <tr><td>Avg. Ticket Size</td><td><strong>$28.50</strong></td><td>Derived from 42,105 annual transactions</td></tr>
-      <tr><td>Transaction Count</td><td>~42,105 / year</td><td>$1.2M ÷ $28.50</td></tr>
-      <tr><td>Payment Mix (Est.)</td><td>48% Debit, 32% Visa/MC, 15% Amex, 5% Discover</td><td>Industry standard (NRA, PYMNTS)</td></tr>
-      <tr><td>Loyalty Engine</td><td>SMS + Email (Birthday Free Pizza, Tiered Rewards)</td><td>Client-provided</td></tr>
-    </table>
-  </section>
+        <section class="section-padding">
+            <h2 class="mb-4">OPTION 1: Interchange + 0.15% + $0.05/Transaction</h2>
 
-  <section>
-    <h2>Section 2: Italian QSR Peer Benchmarking</h2>
-    <p><em>Data aggregated from 2024–2025 reports: NRA, PYMNTS, Toast QSR Report, Federal Reserve, Chargeback Gurus, and Xplor internal data (n=1,847 Italian QSR locations)</em></p>
-    <table>
-      <tr><th>KPI</th><th>Industry Average</th><th>Top Quartile</th><th>Manhattan Pizza (Est.)</th></tr>
-      <tr><td>Avg. Ticket Size</td><td>$26.80</td><td>$29.50</td><td class="highlight">$28.50 (Top 30%)</td></tr>
-      <tr><td>Card Mix</td><td>45% Debit, 34% Visa/MC, 16% Amex, 5% Discover</td><td>—</td><td>Aligned</td></tr>
-      <tr><td>Effective Rate</td><td>2.91%</td><td>2.41%</td><td class="highlight">~3.05% (Cygnus est.)</td></tr>
-      <tr><td>Chargeback Rate</td><td>0.38%</td><td>0.19%</td><td class="highlight">~0.42%</td></tr>
-      <tr><td>Digital Order %</td><td>48%</td><td>62%</td><td class="highlight">~52%</td></tr>
-      <tr><td>Loyalty Redemption Rate</td><td>31%</td><td>48%</td><td class="highlight">~28%</td></tr>
-    </table>
-    <p class="highlight">You outperform on ticket size and digital adoption, but pay <strong>18% above top-quartile rates</strong> and lose <strong>$9,600/year per store</strong> to preventable costs.</p>
-  </section>
+            <h3 class="mt-4 mb-3">Pricing Details</h3>
+            <ul class="list-unstyled">
+                <li><strong>Rate:</strong> Interchange + 0.15%</li>
+                <li><strong>Transaction Fee:</strong> $0.05</li>
+                <li><strong>Monthly Fees:</strong> None</li>
+                <li><strong>PCI Fees:</strong> None</li>
+                <li><strong>AVS Fees:</strong> None</li>
+                <li><strong>Batch Fees:</strong> None</li>
+                <li><strong>Network / Program / Gateway Junk Fees:</strong> None</li>
+            </ul>
 
-  <section>
-    <h2>Section 3: Identified Pain Points & Financial Impact</h2>
-    <table>
-      <tr><th>Pain Point</th><th>Root Cause</th><th>Annual Cost Per Store</th><th>Chain Impact (8 Stores)</th></tr>
-      <tr><td>Excessive Processing Fees</td><td>ISO markup + no dual pricing</td><td class="savings">$9,600</td><td class="savings">$76,800</td></tr>
-      <tr><td>Chargeback Exposure</td><td>Manual dispute handling</td><td class="savings">$5,040</td><td class="savings">$40,320</td></tr>
-      <tr><td>Training & Onboarding</td><td>Steep Thrive learning curve</td><td class="savings">$6,200</td><td class="savings">$49,600</td></tr>
-      <tr><td>Support Latency</td><td>Tiered Cygnus helpdesk</td><td class="savings">$4,800</td><td class="savings">$38,400</td></tr>
-      <tr><td>Reconciliation Inefficiency</td><td>Manual EOD</td><td class="savings">$7,200</td><td class="savings">$57,600</td></tr>
-      <tr><td>Loyalty Underperformance</td><td>Siloed SMS/email</td><td class="savings">$12,000</td><td class="savings">$96,000</td></tr>
-      <tr class="highlight"><td><strong>Total Recoverable Cost</strong></td><td></td><td><strong>$45,040</strong></td><td><strong>$358,720</strong></td></tr>
-    </table>
-  </section>
+            <p class="mt-4"><strong>This eliminates EVERY ONE of these competitor charges</strong> (from your October statement):</p>
+            <ul>
+                <li>$19.99 monthly fee</li>
+                <li>$9.50 PCI fee</li>
+                <li>$5.99 ClientLine</li>
+                <li>$45.00 Visa CNP fee</li>
+                <li>$5.00 debit access fee</li>
+                <li>$121.30 AVS fees</li>
+                <li>$6.20 batch fees</li>
+                <li>All $0.04 transaction fees</li>
+                <li>All $0.0319 network access fees</li>
+                <li>All digital enablement fees</li>
+                <li>All license fees</li>
+                <li>All retry/misuse fees</li>
+            </ul>
 
-  <section>
-    <h2>Section 4: Xplor Pay Solution Architecture</h2>
-    <h3>1. Hardware-Agnostic Integration</h3>
-    <ul>
-      <li>Reprogram existing Thrive terminals in <strong>&lt;48 hours</strong></li>
-      <li>No new hardware, no downtime</li>
-      <li>Full EMV, NFC, PIN debit, mobile wallets</li>
-    </ul>
+            <h3 class="mt-4 mb-3">Cost Under XplorPay – Option 1</h3>
+            <p><strong>Markup Calculations:</strong></p>
+            <ul>
+                <li>0.15% × $94,309.12 = $141.46</li>
+                <li>2,601 transactions × $0.05 = $130.05</li>
+                <li><strong>Your total markup:</strong> $271.51</li>
+            </ul>
+            <p><strong>Total Fees With XplorPay:</strong><br>
+            Interchange ($1,961.24) + Your Markup ($271.51) = <strong>$2,232.75</strong></p>
 
-    <h3>2. Unified Omni-Channel Processing</h3>
-    <table>
-      <tr><th>Channel</th><th>Xplor Pay Capability</th></tr>
-      <tr><td>In-Store</td><td>Real-time auth, offline mode</td></tr>
-      <tr><td>Online/App</td><td>Hosted checkout + SDK</td></tr>
-      <tr><td>Delivery</td><td>Driver tablet sync, tip adjust</td></tr>
-      <tr><td>Catering</td><td>Recurring invoicing, deposits</td></tr>
-    </table>
+            <h3 class="mt-4 mb-3">Savings Under Option 1</h3>
+            <p><strong>Monthly Savings:</strong><br>
+            Current markup: $627.24<br>
+            Your markup: $271.51<br>
+            <strong>Savings = $355.73/month</strong></p>
+            <p><strong>Annual Savings:</strong><br>
+            $355.73 × 12 = <strong>$4,268.76/year</strong></p>
+            <p><strong>Processor Markup Reduction:</strong><br>
+            $355.73 ÷ $627.24 = <strong>56.7% LESS markup</strong></p>
 
-    <h3>3. Loyalty & Marketing Engine (Xplor Amplify)</h3>
-    <ul>
-      <li>Ingest your SMS/email lists</li>
-      <li><strong>Predictive birthday engine</strong>: +38% redemption</li>
-      <li>Segmented gameday upsells</li>
-      <li>Closed-loop ROI tracking</li>
-    </ul>
-  </section>
+            <h3 class="mt-4 mb-3">Pros and Cons of Option 1</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered pros-cons">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Pros</th>
+                            <th>Cons</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>Simple and transparent pricing—easy to understand and budget for.</li>
+                                    <li>Immediate monthly savings of $355+ without changing customer behavior.</li>
+                                    <li>Seamless Thrive POS integration—no operational changes or training.</li>
+                                    <li>Eliminates all junk fees, reducing administrative hassle.</li>
+                                    <li>Scalable with Xplor Technologies' full ecosystem (e.g., analytics).</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Still incurs a small markup (though 57% less than current).</li>
+                                    <li>Requires volume to maximize savings (best for consistent card spend).</li>
+                                    <li>Not fully "zero-cost" like Option 2.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-  <section>
-    <h2>Section 5: Financial Model – Xplor Pay vs. Current</h2>
-    <table>
-      <tr><th>Line Item</th><th>Current (Cygnus)</th><th>Xplor Pay</th><th>Savings</th></tr>
-      <tr><td>Processor Markup</td><td>$9,600</td><td>$3,120</td><td class="savings"><strong>$6,480</strong></td></tr>
-      <tr><td>Chargeback Losses</td><td>$5,040</td><td>$1,512</td><td class="savings"><strong>$3,528</strong></td></tr>
-      <tr><td>Reconciliation Labor</td><td>$7,200</td><td>$1,800</td><td class="savings"><strong>$5,400</strong></td></tr>
-      <tr><td>Loyalty Revenue Lift</td><td>—</td><td>+$18,000</td><td class="savings"><strong>+$18,000</strong></td></tr>
-      <tr class="highlight"><td><strong>Net Annual Savings</strong></td><td>—</td><td>—</td><td><strong>$33,408 per store</strong></td></tr>
-      <tr class="highlight"><td><strong>Chain Total (8 stores)</strong></td><td>—</td><td>—</td><td><strong>$267,264</strong></td></tr>
-    </table>
-    <div class="roi-box">
-      <h3>ROI: 412% in Year 1</h3>
-      <p><strong>Payback in &lt;3 months</strong></p>
-    </div>
-  </section>
+            <h3 class="mt-4 mb-3">Option 1 – Executive Summary</h3>
+            <p>Manhattan Pizza reduces its processor’s cut by ~57%, lowers its effective rate, eliminates every junk fee on the current statement, and saves over $4,200/year—without changing anything about how you take payments. With XplorPay's Thrive POS integration, implementation is effortless, ensuring your operations run smoothly from day one.</p>
+        </section>
 
-  <section>
-    <h2>Section 6: Migration Plan – 90 Days to Launch</h2>
-    <table>
-      <tr><th>Phase</th><th>Timeline</th><th>Deliverables</th></tr>
-      <tr><td>Discovery & Audit</td><td>Week 1</td><td>Statement analysis</td></tr>
-      <tr><td>Pilot Location</td><td>Weeks 2–4</td><td>Ashburn store live</td></tr>
-      <tr><td>Loyalty Sync</td><td>Week 5</td><td>Import SMS/email data</td></tr>
-      <tr><td>Chain Rollout</td><td>Weeks 6–10</td><td>2 stores/week</td></tr>
-      <tr><td>Optimization</td><td>Weeks 11–12</td><td>Campaign launch</td></tr>
-    </table>
-    <p><strong>Zero upfront cost</strong> • <strong>Performance guarantee</strong>: If savings &lt; $30K/store in 6 months, we refund the difference.</p>
-  </section>
+        <section class="section-padding bg-light">
+            <h2 class="mb-4">OPTION 2: Cash Discounting (3.99% Customer Fee + 5% Cash Back to Merchant)</h2>
 
-  <section>
-    <h2>Section 7: Why Xplor Pay Wins for Italian QSRs</h2>
-    <table>
-      <tr><th>Capability</th><th>Xplor Pay</th><th>Cygnus + Thrive</th></tr>
-      <tr><td>Native Thrive Reprogramming</td><td>Yes</td><td>—</td></tr>
-      <tr><td>24/7 U.S. Restaurant Support</td><td>Yes</td><td>Tiered</td></tr>
-      <tr><td>Predictive Loyalty Engine</td><td>Yes</td><td>Basic SMS</td></tr>
-      <tr><td>AI Chargeback Defense</td><td>94% win rate</td><td>Manual</td></tr>
-      <tr><td>Dual Pricing / Cash Discount</td><td>Compliant, automated</td><td>Manual setup</td></tr>
-      <tr><td>Next-Day Funding</td><td>Yes (even weekends)</td><td>Standard</td></tr>
-    </table>
-  </section>
+            <h3 class="mt-4 mb-3">What This Program Does</h3>
+            <ol>
+                <li>Charge a 3.99% non-cash adjustment to customers paying with cards (fully compliant with cash discount rules).</li>
+                <li>Customers paying cash avoid the fee, encouraging faster transactions.</li>
+                <li>Receive 5% cash back into your business from the fee revenue.</li>
+                <li>Net processing cost becomes near $0—often net positive.</li>
+            </ol>
+            <p>This program is powered by XplorPay's compliant cash discounting engine, integrated directly with Thrive POS for automatic fee application at checkout—no manual adjustments needed.</p>
 
-  <div class="cta">
-    <h2>Next Steps</h2>
-    <p>Schedule your <strong>30-minute audit call</strong> today.</p>
-    <a href="mailto:your.email@xplorpay.com?subject=Manhattan Pizza Proposal Review&body=Hi [Your Name],%0A%0AI'd like to schedule the payment audit for Manhattan Pizza.">Email Me to Schedule</a>
-  </div>
+            <h3 class="mt-4 mb-3">Calculating Cash Discount Financials</h3>
+            <ol>
+                <li><strong>Fee Revenue Collected From Customers:</strong><br>3.99% × $94,309.12 = <strong>$3,763.94</strong> collected at checkout.</li>
+                <li><strong>Your Actual Processing Cost (Interchange Only):</strong><br>Interchange remains <strong>$1,961.24</strong> (no markup, no per-transaction fees).</li>
+                <li><strong>Your Cash-Back Rebate:</strong><br>5% × $3,763.94 = <strong>$188.20</strong> paid directly back to you.</li>
+            </ol>
 
-  <footer>
-    <p>© 2025 Vigilant Profit Solutions LLC • Xplor Pay • All rights reserved<br>
-    <em>This proposal is confidential and intended solely for Manhattan Pizza leadership.</em></p>
-  </footer>
-</div>
+            <h3 class="mt-4 mb-3">Your Net Effective Cost</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Item</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Interchange Cost</td>
+                            <td>–$1,961.24</td>
+                        </tr>
+                        <tr>
+                            <td>Customer Fee Revenue +3.99%</td>
+                            <td>+$3,763.94</td>
+                        </tr>
+                        <tr>
+                            <td>5% Cash-Back to Merchant</td>
+                            <td>+$188.20</td>
+                        </tr>
+                        <tr class="table-success">
+                            <td><strong>Net Cash Position</strong></td>
+                            <td><strong>+$1,990.90</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>You not only eliminate all fees—you end up <strong>$1,990.90 ahead</strong> for this month.</p>
 
+            <h3 class="mt-4 mb-3">Savings vs. Current Processor (Cash Discount Option)</h3>
+            <p><strong>Current Total Fees:</strong> $2,588.48</p>
+            <p><strong>New Net Fees:</strong> –$1,990.90 (you profit)</p>
+            <p><strong>Total Improvement:</strong><br>
+            $2,588.48 (old cost) + $1,990.90 (cash discount profit) = <strong>$4,579.38 monthly improvement</strong></p>
+            <p><strong>Annual Impact:</strong><br>
+            $4,579.38 × 12 = <strong>$54,952.56 per year</strong></p>
+
+            <h3 class="mt-4 mb-3">Pros and Cons of Option 2</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered pros-cons">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Pros</th>
+                            <th>Cons</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>Transforms payments into a profit center—$1,990+ monthly gain.</li>
+                                    <li>100% fee elimination + $55K annual profit—ideal for high-volume spots.</li>
+                                    <li>Fully automated via Thrive POS integration—no ops issues or extra work.</li>
+                                    <li>Compliant and scalable with XplorPay's tools for tracking rebates.</li>
+                                    <li>Encourages cash payments, speeding up lines during peak hours.</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Potential customer pushback on visible fees (mitigated by cash option).</li>
+                                    <li>May shift some customers to cash, slightly reducing card volume.</li>
+                                    <li>Requires clear signage/communication for compliance and acceptance.</li>
+                                    <li>Higher upfront setup for signage (Xplor provides templates).</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="mt-4 mb-3">Option 2 – Executive Summary</h3>
+            <p>Instead of paying $2,588 each month, Manhattan Pizza <strong>profits nearly $2,000</strong> on the same card volume. Eliminate 100% of your current processor markup, remove all fees, and generate more than <strong>$50,000 per year</strong> in new margin. Our seamless Thrive POS integration handles everything automatically, with no impact on your restaurant's daily flow.</p>
+        </section>
+
+        <section class="section-padding">
+            <h2 class="mb-4">FINAL SIDE-BY-SIDE COMPARISON</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Program</th>
+                            <th>Your Monthly Cost</th>
+                            <th>Your Annual Cost</th>
+                            <th>Monthly Savings vs Current</th>
+                            <th>Annual Savings vs Current</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-warning">
+                            <td><strong>Current Processor</strong></td>
+                            <td>$2,588.48</td>
+                            <td>$31,061.76</td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td><strong>XplorPay Option 1: 0.15% + $0.05</strong></td>
+                            <td>$2,232.75</td>
+                            <td>$26,793.00</td>
+                            <td>$355.73</td>
+                            <td>$4,268.76</td>
+                        </tr>
+                        <tr class="table-success">
+                            <td><strong>XplorPay Option 2: Cash Discount 3.99% w/ 5% Rebate</strong></td>
+                            <td>–$1,990.90 (profit)</td>
+                            <td>–$23,890.80 (profit)</td>
+                            <td>$4,579.38</td>
+                            <td>$54,952.56</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section-padding text-center">
+            <h2 class="mb-4">Next Steps</h2>
+            <p class="lead">I'm here to customize this further or walk through a demo of our Thrive POS integration. Let's schedule a quick call to get Manhattan Pizza saving (or profiting) today—contact me at [your email/phone]. With XplorPay, powered by Xplor Technologies, you're not just processing payments; you're optimizing your entire operation.</p>
+            <p class="mt-4"><strong>Thank you for considering XplorPay—let's make payments work for you!</strong></p>
+        </section>
+    </main>
+
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">[Your Name] | Account Executive, XplorPay | [Your Contact Info] | <a href="https://xplorpay.com" class="text-white">xplorpay.com</a></p>
+            <p class="mt-2 small">© 2025 Vigilant Profit Solutions, LLC & XplorPay. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
