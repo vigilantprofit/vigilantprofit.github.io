@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XplorPay Processing Analysis for Hershey's Restaurant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+        }
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid #6923F4;
+        }
+        .logo-container {
+            text-align: center;
+        }
+        .logo-container img {
+            max-height: 150px;
+            margin: 0 20px;
+        }
+        h1, h2, h3 {
+            color: #6923F4;
+            font-weight: 600;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #6923F4 0%, #A78BFA 100%);
+            color: white;
+            padding: 60px 0;
+        }
+        .hero-section h1, .hero-section h2, .hero-section h3 {
+            color: white;
+        }
+        .hero-section p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .section-purple {
+            background-color: #f8f5ff;
+            color: #1a1a1a;
+        }
+        .section-purple h1, .section-purple h2, .section-purple h3 {
+            color: #6923F4;
+        }
+        .section-white {
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+        .btn-primary, .table-primary {
+            --bs-btn-bg: #6923F4;
+            --bs-btn-border-color: #6923F4;
+            --bs-btn-hover-bg: #5a1fd9;
+            --bs-table-bg: #6923F4;
+        }
+        thead th {
+            color: white !important;
+        }
+        .section-padding {
+            padding: 40px 0;
+        }
+        table {
+            font-size: 0.95em;
+        }
+        .pros-cons td {
+            vertical-align: top;
+            padding: 15px;
+        }
+        footer {
+            background-color: #6923F4;
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        footer a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        footer a:hover {
+            color: white;
+        }
+        .table-dark {
+            --bs-table-bg: #1a1a1a;
+            --bs-table-color: #ffffff;
+        }
+        .table-success {
+            --bs-table-bg: #d1e7dd;
+        }
+        .table-warning {
+            --bs-table-bg: #fff3cd;
+        }
+        @media (max-width: 768px) {
+            .logo-container img {
+                margin: 10px 0;
+                max-height: 120px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="py-4">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6 col-12 logo-container">
+                    <img src="xplorpay-logo.svg" alt="XplorPay Logo" class="img-fluid">
+                </div>
+                <div class="col-md-6 col-12 logo-container">
+                    <img src="vps-logo.png" alt="Vigilant Profit Solutions, LLC Logo" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container-fluid">
+        <section class="hero-section">
+            <div class="container section-padding">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="mb-4">XplorPay Processing Analysis for Hershey's Restaurant</h1>
+                        <p class="lead">
+                            <strong>Prepared By:</strong> Mark Zaw-Win, Account Executive, XplorPay<br>
+                            <strong>Date:</strong> December 15, 2025<br>
+                            <strong>Business Name:</strong> Hershey's Restaurant<br>
+                            <strong>Location:</strong> Gaithersburg, MD<br>
+                            <strong>Estimated Monthly Revenue:</strong> $36,000 (Average Ticket: $50)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-white section-padding">
+            <div class="container">
+                <h2 class="mb-4">SUMMARY – Estimated Current Processing Costs</h2>
+                <p class="mb-3">Based on industry benchmarks for table-service restaurants and your estimated monthly card volume of $36,000 (assuming ~720 transactions):</p>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Category</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Gross Processing Volume</td>
+                                <td>$36,000</td>
+                            </tr>
+                            <tr>
+                                <td>Total Estimated Fees (at ~2.75% effective rate + junk fees)</td>
+                                <td>$1,040</td>
+                            </tr>
+                            <tr>
+                                <td>Interchange + Program Fees (card-brand cost)</td>
+                                <td>$750</td>
+                            </tr>
+                            <tr>
+                                <td>Processor Markup (their cut)</td>
+                                <td>$290</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-3"><strong>This $290</strong> is the amount your current processor controls. This is what we are reducing or eliminating.</p>
+            </div>
+        </section>
+        <section class="section-purple section-padding">
+            <div class="container">
+                <h2 class="mb-4">YOUR NEW PRICING OPTIONS WITH XPLORPAY</h2>
+                <p>As an Account Executive at XplorPay, part of Xplor Technologies, I'm excited to present tailored payment solutions for table-service restaurants like Hershey's. XplorPay delivers seamless, integrated processing with robust support for POS systems, including partnerships that enable easy integrations for in-person dining, takeout, and potential online ordering.</p>
+                <p>XplorPay's compliant surcharging and cash discounting programs allow you to offset processing costs while maintaining transparency for your guests.</p>
+                <p><strong>Assumption:</strong> 90% of volume ($32,400) is card-present (dine-in/takeout), 10% ($3,600) online/to-go (CNP). ~720 total transactions (648 card-present, 72 online). These are estimates based on typical table-service operations.</p>
+                <p><strong>Note on Estimates:</strong> Savings and profits are projections based on your provided revenue and average ticket. Actual results will vary with volume, mix, and implementation.</p>
+                <p>We offer three flexible options:<br>
+                <strong>Option 1:</strong> Interchange + 0.15% + $0.05/Transaction (all payments).<br>
+                <strong>Option 2:</strong> Interchange + 0.15% + $0.05/Transaction (card-present) + 3.99% compliant surcharge (online).<br>
+                <strong>Option 3:</strong> Cash discounting (3.99% non-cash adjustment + 5% rebate, card-present) + 3.99% surcharge (online).</p>
+                <p>All options eliminate junk fees and leverage XplorPay's transparent, restaurant-friendly processing.</p>
+            </div>
+        </section>
+        <section class="section-white section-padding">
+            <div class="container">
+                <h2 class="mb-4">OPTION 1: Interchange + 0.15% + $0.05/Transaction (All Payments)</h2>
+                <!-- Similar structure as original -->
+                <h3 class="mt-4 mb-3">Cost Under XplorPay – Option 1</h3>
+                <ul>
+                    <li>0.15% × $36,000 = $54</li>
+                    <li>720 transactions × $0.05 = $36</li>
+                    <li><strong>Total markup:</strong> $90</li>
+                </ul>
+                <p><strong>Total Fees With XplorPay:</strong> Interchange (~$750) + Markup ($90) = <strong>$840</strong></p>
+                <h3 class="mt-4 mb-3">Savings Under Option 1</h3>
+                <p><strong>Monthly Savings:</strong> $1,040 – $840 = <strong>$200/month</strong></p>
+                <p><strong>Annual Savings:</strong> <strong>$2,400/year</strong></p>
+                <!-- Pros/Cons and Summary adapted -->
+                <h3 class="mt-4 mb-3">Option 1 – Executive Summary</h3>
+                <p>Hershey's Restaurant reduces processor markup by ~69%, eliminates junk fees, and saves ~$2,400/year—simple and seamless with XplorPay integrations.</p>
+            </div>
+        </section>
+        <section class="section-purple section-padding">
+            <div class="container">
+                <h2 class="mb-4">OPTION 2: IC+ 0.15% + $0.05 (Card-Present) + 3.99% Online Surcharge</h2>
+                <!-- Calculations -->
+                <h3 class="mt-4 mb-3">Online: 3.99% Surcharge</h3>
+                <ul>
+                    <li>Surcharge Revenue: 3.99% × $3,600 = <strong>$143.64</strong></li>
+                    <li>Interchange (Online est.): $90</li>
+                    <li><strong>Net Online Profit:</strong> +$53.64</li>
+                </ul>
+                <h3 class="mt-4 mb-3">Card-Present Markup</h3>
+                <ul>
+                    <li>0.15% × $32,400 = $48.60</li>
+                    <li>648 × $0.05 = $32.40</li>
+                    <li><strong>Total CP Markup:</strong> $81</li>
+                </ul>
+                <p><strong>Total Effective Cost:</strong> ~ –$20 (small profit)</p>
+                <h3 class="mt-4 mb-3">Savings Under Option 2</h3>
+                <p><strong>Monthly Improvement:</strong> <strong>$1,060/month</strong></p>
+                <p><strong>Annual:</strong> <strong>$12,720/year</strong></p>
+                <h3 class="mt-4 mb-3">Option 2 – Executive Summary</h3>
+                <p>Low markup on dine-in + profit from online/to-go surcharges turns payments into a revenue driver for Hershey's.</p>
+            </div>
+        </section>
+        <section class="section-white section-padding">
+            <div class="container">
+                <h2 class="mb-4">OPTION 3: Cash Discounting (Card-Present) + 3.99% Online Surcharge</h2>
+                <!-- Calculations -->
+                <h3 class="mt-4 mb-3">Card-Present Net</h3>
+                <ul>
+                    <li>Fee Revenue: 3.99% × $32,400 = $1,292.76</li>
+                    <li>Interchange CP: ~$660</li>
+                    <li>5% Rebate: $64.64</li>
+                    <li><strong>Net CP Profit:</strong> +$697.40</li>
+                </ul>
+                <p><strong>Total Net (incl. Online ~$53):</strong> +<strong>$750 profit/month</strong></p>
+                <h3 class="mt-4 mb-3">Improvement vs Current</h3>
+                <p><strong>Monthly:</strong> <strong>$1,790</strong></p>
+                <p><strong>Annual:</strong> <strong>$21,480/year profit</strong></p>
+                <h3 class="mt-4 mb-3">Option 3 – Executive Summary</h3>
+                <p>Transform payments into profit: ~$750/month gain with compliant programs fully supported by XplorPay.</p>
+            </div>
+        </section>
+        <section class="section-purple section-padding">
+            <div class="container">
+                <h2 class="mb-4">FINAL SIDE-BY-SIDE COMPARISON</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Program</th>
+                                <th>Monthly Cost/Profit</th>
+                                <th>Annual</th>
+                                <th>Monthly Improvement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-warning">
+                                <td><strong>Current Estimated</strong></td>
+                                <td>$1,040 cost</td>
+                                <td>$12,480</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Option 1</strong></td>
+                                <td>$840 cost</td>
+                                <td>$10,080</td>
+                                <td>$200</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong>Option 2</strong></td>
+                                <td>~$20 profit</td>
+                                <td>~$240 profit</td>
+                                <td>$1,060</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong>Option 3</strong></td>
+                                <td>~$750 profit</td>
+                                <td>~$9,000 profit</td>
+                                <td>$1,790</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <section class="section-white section-padding text-center">
+            <div class="container">
+                <h2 class="mb-4">Next Steps</h2>
+                <p class="lead">Let's discuss which option fits Hershey's best and explore seamless integration. Contact me to schedule a demo or review your statements for precise savings.</p>
+                <p class="mt-4"><strong>Thank you—let's make payments profitable for Hershey's Restaurant!</strong></p>
+            </div>
+        </section>
+    </main>
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">Mark Zaw-Win | Account Executive, XplorPay | mark.zaw-win@xplortechnologies.com | <a href="https://xplorpay.com">xplorpay.com</a></p>
+            <p class="mt-2 small">© 2025 Vigilant Profit Solutions, LLC & XplorPay. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
