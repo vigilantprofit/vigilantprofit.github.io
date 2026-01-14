@@ -1,43 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vigilant Profit Solutions</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigilant Profit Solutions, LLC - AI, Cloud & Payment Technology Consulting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="new-header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="logo.png" alt="VPS Logo" class="logo-img">
+                <span class="logo-text">Vigilant Profit Solutions LLC</span>
+            </a>
+            <button id="mobile-menu-btn" class="mobile-toggle">☰</button>
+            <nav class="new-nav" id="main-nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="ai-automation.html" class="nav-link">AI & Automation</a>
+                <a href="custom-software.html" class="nav-link">Custom Software</a>
+                <a href="cloud-transformation.html" class="nav-link">Cloud</a>
+                <a href="enterprise-solutions.html" class="nav-link">Enterprise</a>
+                <a href="payments.html" class="nav-link">Payments</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-<header class="new-header">
-    <div class="container">
-        <a href="index.html" class="logo-link">
-            <img src="logo.png" alt="VPS Logo" class="logo-img">
-            <span class="logo-text">Vigilant Profit Solutions LLC</span>
-        </a>
-        <button id="mobile-menu-btn" class="mobile-toggle">☰</button>
-        <nav class="new-nav" id="main-nav">
-            <a href="index.html" class="nav-link active">Home</a>
-            <a href="ai-automation.html" class="nav-link">AI & Automation</a>
-            <!-- full links -->
-        </nav>
-    </div>
-</header>
+    <section class="hero">
+        <div class="container">
+            <h1>Modern Technology Solutions for Public Sector & Enterprise</h1>
+            <p class="lead">Vigilant Profit Solutions delivers founder-led AI, cloud, and payment technology consulting that connects modern capabilities to real operational needs.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
+                <a href="about.html" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
 
-<!-- Full homepage content from previous -->
-<section id="offerings" class="services-overview">
-<!-- services -->
-</section>
-<section id="contact" class="contact">
-<!-- contact -->
-</section>
-<footer>© 2026</footer>
+    <section id="offerings" class="services-overview">
+        <div class="container">
+            <h2>Core Capabilities</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Applied AI & Automation</h3>
+                    <p>AI readiness assessments, implementation roadmaps, and agentic workflow solutions that improve decision-making and reduce manual effort.</p>
+                    <a href="ai-automation.html" class="btn-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <h3>Custom Software Development</h3>
+                    <p>Modern web and mobile applications, portals, and SaaS products built for scalability, maintainability, and user experience.</p>
+                    <a href="custom-software.html" class="btn-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <h3>Cloud & Digital Transformation</h3>
+                    <p>Cloud-native architectures, migration strategies, and continuous improvement roadmaps aligned to measurable outcomes.</p>
+                    <a href="cloud-transformation.html" class="btn-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <h3>Enterprise Solutions</h3>
+                    <p>CRM, ERP, HR, and analytics platform integration with AI-driven insights and automation for operational efficiency.</p>
+                    <a href="enterprise-solutions.html" class="btn-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <h3>Payments-Enabled Experiences</h3>
+                    <p>Secure, compliant payment integration for portals and SaaS products, enabling streamlined digital collections and transactions.</p>
+                    <a href="payments.html" class="btn-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('mobile-menu-btn').onclick = () => document.getElementById('main-nav').classList.toggle('mobile-open');
-});
-</script>
+    <section class="differentiators">
+        <div class="container">
+            <h2>Why Vigilant Profit Solutions</h2>
+            <div class="diff-grid">
+                <div class="diff-item">
+                    <h3>Founder-Led Engagements</h3>
+                    <p>Work directly with a principal who combines account-executive experience, payment industry background, and hands-on technology understanding.</p>
+                </div>
+                <div class="diff-item">
+                    <h3>Outcome-Driven Delivery</h3>
+                    <p>Focus on practical implementations rather than conceptual strategy, with clear accountability from discovery through deployment.</p>
+                </div>
+                <div class="diff-item">
+                    <h3>Scalable Capacity</h3>
+                    <p>Partner-augmented delivery model allows us to scale teams and skill sets while maintaining single-point accountability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Schedule a consultation to discuss your technology needs and explore how we can help.</p>
+            <a href="mailto:info@vigilantprofitsolutions.com" class="btn btn-primary">Contact Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Vigilant Profit Solutions, LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('mobile-menu-btn');
+        var nav = document.getElementById('main-nav');
+        if (btn && nav) {
+            btn.addEventListener('click', function() {
+                nav.classList.toggle('mobile-open');
+            });
+        }
+    });
+    </script>
 </body>
 </html>

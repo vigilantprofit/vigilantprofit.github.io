@@ -1,34 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Ai & Automation - VPS</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applied AI & Automation - Vigilant Profit Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="new-header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="logo.png" alt="VPS Logo" class="logo-img">
+                <span class="logo-text">Vigilant Profit Solutions LLC</span>
+            </a>
+            <button id="mobile-menu-btn" class="mobile-toggle">☰</button>
+            <nav class="new-nav" id="main-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="ai-automation.html" class="nav-link active">AI & Automation</a>
+                <a href="custom-software.html" class="nav-link">Custom Software</a>
+                <a href="cloud-transformation.html" class="nav-link">Cloud</a>
+                <a href="enterprise-solutions.html" class="nav-link">Enterprise</a>
+                <a href="payments.html" class="nav-link">Payments</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-<header class="new-header">
-    <div class="container">
-        <a href="index.html" class="logo-link">
-            <img src="logo.png" alt="VPS Logo" class="logo-img">
-            <span class="logo-text">Vigilant Profit Solutions LLC</span>
-        </a>
-        <button id="mobile-menu-btn" class="mobile-toggle">☰</button>
-        <nav class="new-nav" id="main-nav">
-            <a href="index.html" class="nav-link active">Home</a>
-            <a href="ai-automation.html" class="nav-link">AI & Automation</a>
-            <!-- full links -->
-        </nav>
-    </div>
-</header>
+    <section class="page-hero">
+        <div class="container">
+            <h1>Applied AI & Automation</h1>
+            <p class="lead">Transform operations with practical AI implementations that improve decision-making and enhance customer experience.</p>
+        </div>
+    </section>
 
-<section class="page-hero"><!-- page content --></section>
+    <section class="page-content">
+        <div class="container">
+            <div class="content-section">
+                <h2>The Challenge</h2>
+                <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">Organizations face mounting pressure to deliver faster, more personalized services while managing increasing volumes of data and transactions. Legacy processes create bottlenecks, and stakeholders struggle to separate AI hype from genuine operational value.</p>
+            </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('mobile-menu-btn').onclick = () => document.getElementById('main-nav').classList.toggle('mobile-open');
-});
-</script>
+            <div class="content-section">
+                <h2>Our Approach</h2>
+                <div class="approach-grid">
+                    <div class="approach-item">
+                        <h3>Readiness First</h3>
+                        <p>We assess your current data, infrastructure, and processes to determine AI readiness, creating clear roadmaps aligned to security, compliance, and change-management constraints common in government and enterprise environments.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h3>Human-in-the-Loop Design</h3>
+                        <p>Our implementations emphasize transparency, auditability, and human oversight—ensuring AI augments decision-making rather than replacing accountability.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h3>Measurable Outcomes</h3>
+                        <p>We focus on high-value use cases with clear success metrics, from pilot design through MVP delivery and scale-out, avoiding technology for technology's sake.</p>
+                    </div>
+                </div>
+            </div>
 
+            <div class="content-section">
+                <h2>Capabilities</h2>
+                <ul class="capabilities-list">
+                    <li><strong>AI Readiness Assessments:</strong> Evaluate data quality, infrastructure, and organizational readiness for AI initiatives</li>
+                    <li><strong>Use Case Discovery:</strong> Identify and prioritize high-impact opportunities across citizen services, operations, and compliance</li>
+                    <li><strong>Governance & Risk Frameworks:</strong> Design policies, procedures, and oversight structures for responsible AI deployment</li>
+                    <li><strong>Agentic AI Workflows:</strong> Implement copilots, document intelligence, and decision-support systems that integrate with existing processes</li>
+                    <li><strong>Natural Language Processing:</strong> Build intelligent chatbots, document extraction, and sentiment analysis capabilities</li>
+                    <li><strong>Predictive Analytics:</strong> Develop forecasting and anomaly detection models for operational planning and fraud prevention</li>
+                    <li><strong>Training & Knowledge Transfer:</strong> Equip your teams to maintain and evolve AI capabilities post-implementation</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Example Use Cases</h2>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <h4>Citizen Service Automation</h4>
+                        <p>Intelligent routing and triage of citizen inquiries, with automated responses for common requests and seamless escalation to staff for complex issues.</p>
+                    </div>
+                    <div class="use-case">
+                        <h4>Document Intelligence</h4>
+                        <p>Automated extraction and classification of data from permits, applications, and contracts, reducing manual data entry and improving processing speed.</p>
+                    </div>
+                    <div class="use-case">
+                        <h4>Decision Support Systems</h4>
+                        <p>AI-powered dashboards that surface insights from disparate data sources, helping leadership make faster, evidence-based decisions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2>Ready to Explore AI for Your Organization?</h2>
+                <a href="mailto:info@vigilantprofitsolutions.com" class="btn btn-primary">Schedule AI Readiness Assessment</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Vigilant Profit Solutions, LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('mobile-menu-btn');
+        var nav = document.getElementById('main-nav');
+        if (btn && nav) {
+            btn.addEventListener('click', function() {
+                nav.classList.toggle('mobile-open');
+            });
+        }
+    });
+    </script>
 </body>
 </html>

@@ -1,34 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Enterprise & Solutions - VPS</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Solutions - Vigilant Profit Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="new-header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="logo.png" alt="VPS Logo" class="logo-img">
+                <span class="logo-text">Vigilant Profit Solutions LLC</span>
+            </a>
+            <button id="mobile-menu-btn" class="mobile-toggle">☰</button>
+            <nav class="new-nav" id="main-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="ai-automation.html" class="nav-link">AI & Automation</a>
+                <a href="custom-software.html" class="nav-link">Custom Software</a>
+                <a href="cloud-transformation.html" class="nav-link">Cloud</a>
+                <a href="enterprise-solutions.html" class="nav-link active">Enterprise</a>
+                <a href="payments.html" class="nav-link">Payments</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-<header class="new-header">
-    <div class="container">
-        <a href="index.html" class="logo-link">
-            <img src="logo.png" alt="VPS Logo" class="logo-img">
-            <span class="logo-text">Vigilant Profit Solutions LLC</span>
-        </a>
-        <button id="mobile-menu-btn" class="mobile-toggle">☰</button>
-        <nav class="new-nav" id="main-nav">
-            <a href="index.html" class="nav-link active">Home</a>
-            <a href="ai-automation.html" class="nav-link">AI & Automation</a>
-            <!-- full links -->
-        </nav>
-    </div>
-</header>
+    <section class="page-hero">
+        <div class="container">
+            <h1>Enterprise & Line-of-Business Solutions</h1>
+            <p class="lead">Extend and integrate CRM, ERP, HR, and analytics platforms with AI-driven insights and workflow automation.</p>
+        </div>
+    </section>
 
-<section class="page-hero"><!-- page content --></section>
+    <section class="page-content">
+        <div class="container">
+            <div class="content-section">
+                <h2>The Challenge</h2>
+                <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">Enterprise platforms provide powerful core functionality but often require significant customization to match unique business processes. Data silos between systems create inefficiencies and limit the value organizations can extract from their technology investments.</p>
+            </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('mobile-menu-btn').onclick = () => document.getElementById('main-nav').classList.toggle('mobile-open');
-});
-</script>
+            <div class="content-section">
+                <h2>Our Approach</h2>
+                <div class="approach-grid">
+                    <div class="approach-item">
+                        <h3>Platform Extension</h3>
+                        <p>We enhance existing enterprise systems with custom modules, integrations, and workflow automation rather than replacing working infrastructure.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h3>AI-Augmented Workflows</h3>
+                        <p>Layer intelligent automation on top of CRM, ERP, and HR systems to reduce manual data entry, surface insights, and improve decision velocity.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h3>Unified Data View</h3>
+                        <p>Connect disparate systems through APIs and data integration, creating single sources of truth for reporting, analytics, and operational dashboards.</p>
+                    </div>
+                </div>
+            </div>
 
+            <div class="content-section">
+                <h2>Capabilities</h2>
+                <ul class="capabilities-list">
+                    <li><strong>CRM Customization & Integration:</strong> Salesforce, Dynamics 365, and custom CRM extensions for sales, service, and marketing automation</li>
+                    <li><strong>ERP Enhancement:</strong> NetSuite, SAP, and Dynamics 365 Finance/Supply Chain customization, reporting, and integration</li>
+                    <li><strong>HR & Workforce Management:</strong> Workday, ADP, and custom HRIS integration with time tracking and performance management tools</li>
+                    <li><strong>Business Intelligence & Analytics:</strong> Power BI, Tableau, and custom dashboards connecting data across systems</li>
+                    <li><strong>Workflow Automation:</strong> Microsoft Power Automate, Azure Logic Apps, and custom automation for approvals and data sync</li>
+                    <li><strong>Revenue Operations:</strong> Quote-to-cash automation, sales forecasting, pipeline management, and commission calculation</li>
+                </ul>
+            </div>
+
+            <div class="cta-section">
+                <h2>Ready to Optimize Your Enterprise Systems?</h2>
+                <a href="mailto:info@vigilantprofitsolutions.com" class="btn btn-primary">Schedule Systems Review</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Vigilant Profit Solutions, LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('mobile-menu-btn');
+        var nav = document.getElementById('main-nav');
+        if (btn && nav) {
+            btn.addEventListener('click', function() {
+                nav.classList.toggle('mobile-open');
+            });
+        }
+    });
+    </script>
 </body>
 </html>
