@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Discounting / Dual Pricing Proposal Generator</title>
+    <style>
+        @font-face {
+    font-family: 'NNNouvelleGroteskSTD';
+    src: url('NNNouvelleGroteskSTD-Normal.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'NNNouvelleGroteskSTD', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .calculator-section {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: border-color 0.3s;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .input-group input:disabled {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        #output {
+            margin-top: 40px;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+        }
+        
+        .proposal-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .proposal-header h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .merchant-name {
+            font-size: 1.3em;
+            color: #667eea;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        .proposal-section {
+            margin-bottom: 40px;
+        }
+        
+        .proposal-section h3 {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        td:nth-child(2), td:nth-child(3) {
+            text-align: right;
+            font-weight: 600;
+        }
+        
+        .highlight-row {
+            background-color: #e7f3ff;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        .savings-row {
+            background-color: #d1fae5;
+            font-weight: 700;
+            font-size: 1.2em;
+            color: #065f46;
+        }
+        
+        .profit-display {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+        
+        .info-box {
+            background: #f0f9ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .info-box p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        .pas-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .pas-section h4 {
+            font-size: 1.3em;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .pas-section p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .calculator-section, .button-group {
+                display: none;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .header {
+                background: white;
+                color: #333;
+                border-bottom: 3px solid #667eea;
+            }
+            
+            .logo-print {
+                display: block;
+                max-width: 150px;
+                margin: 0 auto 20px;
+            }
+            
+            th {
+                background: #667eea;
+                color: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .profit-display {
+                background: #10b981;
+                color: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .savings-row {
+                background-color: #d1fae5;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .pas-section {
+                page-break-before: avoid;
+            }
+        }
+        
+        @media screen {
+            .logo-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <svg class="logo-print" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="60" fill="#667eea"/>
+                <text x="100" y="35" font-family="Arial" font-size="24" font-weight="bold" fill="white" text-anchor="middle">Your Logo</text>
+            </svg>
+            <h1>Cash Discounting / Dual Pricing Calculator</h1>
+            <p style="font-size: 1.1em; margin-top: 10px;">Eliminate Processing Fees & Increase Profit</p>
+        </div>
+        
+        <div class="calculator-section">
+            <div class="input-group">
+                <label for="merchantName">Merchant Name</label>
+                <input type="text" id="merchantName" placeholder="Enter merchant business name">
+            </div>
+            
+            <div class="input-group">
+                <label for="currentFees">Current Monthly Credit Card Processing Fees ($)</label>
+                <input type="number" id="currentFees" placeholder="Enter current monthly processing costs" step="0.01">
+            </div>
+            
+            <div class="input-group">
+                <label for="monthlyVol">Monthly Card Volume ($)</label>
+                <input type="number" id="monthlyVol" placeholder="Enter monthly processing volume" step="0.01" onchange="calculateThird()">
+            </div>
+            
+            <div class="input-group">
+                <label for="avgTicket">Average Ticket Size ($)</label>
+                <input type="number" id="avgTicket" placeholder="Enter average transaction amount" step="0.01" onchange="calculateThird()">
+            </div>
+            
+            <div class="input-group">
+                <label for="monthlyTrans">Monthly Transactions</label>
+                <input type="number" id="monthlyTrans" placeholder="Enter number of transactions" onchange="calculateThird()">
+            </div>
+            
+            <div class="info-box">
+                <strong>How to use:</strong> Enter merchant name and current fees, then enter any TWO of the three volume fields. The third will calculate automatically.
+            </div>
+            
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="generateReport()">Generate Proposal</button>
+                <button class="btn btn-secondary" onclick="window.print()">Print Proposal</button>
+            </div>
+        </div>
+        
+        <div id="output" style="display: none;">
+            <div class="proposal-header">
+                <h2>Cash Discounting Program Proposal</h2>
+                <p class="merchant-name">Proposal Prepared For: <span id="outputMerchantName"></span></p>
+            </div>
+            
+            <div class="proposal-section">
+                <h3>Cost Comparison</h3>
+                <table id="comparisonTable">
+                    <thead>
+                        <tr>
+                            <th>Fee Category</th>
+                            <th>Monthly</th>
+                            <th>Annual</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                
+                <div class="profit-display" id="savingsDisplay"></div>
+            </div>
+            
+            <div class="proposal-section">
+                <h3>Cash Discounting Program Costs</h3>
+                <table id="summaryTable">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Monthly</th>
+                            <th>Annual</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            
+            <div class="pas-section">
+                <h3 style="text-align: center; color: #667eea; margin-bottom: 30px;">Why Cash Discounting?</h3>
+                
+                <h4>💳 The Problem: Processing Fees Are Draining Your Profits</h4>
+                <p>Every time a customer swipes a credit card, you're losing 2-4% of that sale to processing fees. For many businesses, this represents thousands—even tens of thousands—of dollars annually that could be going straight to your bottom line. Traditional merchant processing forces you to absorb these costs as a "cost of doing business."</p>
+                
+                <h4>📉 The Agitation: It's Only Getting Worse</h4>
+                <p>Credit card companies continue raising interchange rates, adding new fees, and introducing premium cards that cost YOU more to accept. Meanwhile, cash usage continues to decline, meaning more transactions are hitting your profit margins. Without a solution, you're watching competitors implement cash discounting while you continue subsidizing credit card rewards programs for customers who can afford to pay in full.</p>
+                
+                <h4>✅ The Solution: Legal Dual Pricing That Protects Your Margins</h4>
+                <p>Cash discounting (dual pricing) is a legal, compliant way to pass credit card processing costs to customers who choose to pay by card—while rewarding cash-paying customers with your best price. This isn't a surcharge program; it's a discount program where cash customers receive a lower price. You set a single register price (the credit card price), and cash customers automatically receive a discount.</p>
+                
+                <p><strong>Key Benefits:</strong></p>
+                <ul style="margin-left: 20px; line-height: 2;">
+                    <li><strong>Zero Credit Card Processing Costs:</strong> The 3.99% service fee completely offsets credit card interchange and fees</li>
+                    <li><strong>Legal Nationwide:</strong> Compliant in all 50 states when properly implemented</li>
+                    <li><strong>No Customer Confusion:</strong> Clear signage shows cash vs. card pricing</li>
+                    <li><strong>Instant Implementation:</strong> $50/month program fee includes signage, compliance, and support</li>
+                    <li><strong>Protect PIN Debit:</strong> Regulated debit cards cannot be surcharged, and we handle them at minimal cost</li>
+                </ul>
+                
+                <p style="margin-top: 20px; font-weight: 600; color: #667eea;">The savings shown above represent real money that stays in your business instead of going to credit card companies. This is pure profit improvement with no change to your operations.</p>
+            </div>
+            
+            <div class="info-box">
+                <strong>Program Details:</strong>
+                <p>• 3.99% service fee applied to credit card transactions completely offsets all credit card processing costs</p>
+                <p>• Credit card processing fees: $0.00 (covered by service fee)</p>
+                <p>• PIN debit cards processed at cost: 0.05% + $0.21 interchange + $0.10 transaction fee</p>
+                <p>• Assumes 90% credit card / 10% PIN debit transaction mix</p>
+                <p>• $50/month program fee includes compliance, signage, and ongoing support</p>
+                <p>• No hidden fees, no long-term contracts, cancel anytime</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let lastModifiedField = null;
+
+        function formatCurrency(num) {
+            return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(num);
+        }
+
+        // Track which field was last modified
+        document.getElementById('monthlyVol').addEventListener('input', function() {
+            lastModifiedField = 'volume';
+        });
+        document.getElementById('avgTicket').addEventListener('input', function() {
+            lastModifiedField = 'ticket';
+        });
+        document.getElementById('monthlyTrans').addEventListener('input', function() {
+            lastModifiedField = 'transactions';
+        });
+
+        function calculateThird() {
+            const volEl = document.getElementById('monthlyVol');
+            const ticketEl = document.getElementById('avgTicket');
+            const transEl = document.getElementById('monthlyTrans');
+            
+            const vol = parseFloat(volEl.value) || 0;
+            const ticket = parseFloat(ticketEl.value) || 0;
+            const monTrans = parseFloat(transEl.value) || 0;
+            
+            // Reset all to enabled
+            volEl.disabled = false;
+            ticketEl.disabled = false;
+            transEl.disabled = false;
+            
+            // Determine which field to calculate based on what's filled
+            if (vol > 0 && ticket > 0 && lastModifiedField !== 'transactions') {
+                // Calculate transactions
+                const calculated = Math.round(vol / ticket);
+                transEl.value = calculated;
+                transEl.disabled = true;
+            } else if (vol > 0 && monTrans > 0 && lastModifiedField !== 'ticket') {
+                // Calculate ticket
+                const calculated = (vol / monTrans).toFixed(2);
+                ticketEl.value = calculated;
+                ticketEl.disabled = true;
+            } else if (ticket > 0 && monTrans > 0 && lastModifiedField !== 'volume') {
+                // Calculate volume
+                const calculated = (ticket * monTrans).toFixed(2);
+                volEl.value = calculated;
+                volEl.disabled = true;
+            }
+        }
+
+        function generateReport() {
+            const merchantName = document.getElementById('merchantName').value.trim();
+            const currentFees = parseFloat(document.getElementById('currentFees').value) || 0;
+            const monthlyVol = parseFloat(document.getElementById('monthlyVol').value) || 0;
+            const avgTicket = parseFloat(document.getElementById('avgTicket').value) || 0;
+            const monthlyTrans = parseFloat(document.getElementById('monthlyTrans').value) || 0;
+            
+            if (!merchantName) {
+                alert('Please enter a merchant name.');
+                return;
+            }
+            
+            if (currentFees === 0) {
+                alert('Please enter current monthly processing fees.');
+                return;
+            }
+            
+            if (monthlyVol === 0 || avgTicket === 0 || monthlyTrans === 0) {
+                alert('Please enter two valid volume inputs to calculate the third.');
+                return;
+            }
+            
+            const annualVol = monthlyVol * 12;
+            const annualTrans = monthlyTrans * 12;
+            const pinPct = 0.1;
+            const pinInterchangePct = 0.0005;
+            const pinInterchangeFixed = 0.21;
+            const pinTransFee = 0.10;
+            const monthlyProgramFee = 50;
+            const annualProgramFee = 600;
+            
+            // Calculate PIN debit costs only (credit cards are $0)
+            const pinVolMonthly = monthlyVol * pinPct;
+            const pinTransMonthly = monthlyTrans * pinPct;
+            const pinInterchangeMonthly = (pinVolMonthly * pinInterchangePct) + (pinTransMonthly * pinInterchangeFixed);
+            const pinTransFeesMonthly = pinTransMonthly * pinTransFee;
+            const totalPinCostMonthly = pinInterchangeMonthly + pinTransFeesMonthly;
+            
+            const pinVolAnnual = annualVol * pinPct;
+            const pinTransAnnual = annualTrans * pinPct;
+            const pinInterchangeAnnual = (pinVolAnnual * pinInterchangePct) + (pinTransAnnual * pinInterchangeFixed);
+            const pinTransFeesAnnual = pinTransAnnual * pinTransFee;
+            const totalPinCostAnnual = pinInterchangeAnnual + pinTransFeesAnnual;
+            
+            // Calculate new total fees
+            const newFeesMonthly = totalPinCostMonthly + monthlyProgramFee;
+            const newFeesAnnual = totalPinCostAnnual + annualProgramFee;
+            
+            // Calculate savings
+            const currentFeesAnnual = currentFees * 12;
+            const monthlySavings = currentFees - newFeesMonthly;
+            const annualSavings = currentFeesAnnual - newFeesAnnual;
+            
+            // Set merchant name
+            document.getElementById('outputMerchantName').textContent = merchantName;
+            
+            // Populate comparison table
+            const comparisonTbody = document.querySelector('#comparisonTable tbody');
+            comparisonTbody.innerHTML = `
+                <tr>
+                    <td>Current Processing Fees</td>
+                    <td>${formatCurrency(currentFees)}</td>
+                    <td>${formatCurrency(currentFeesAnnual)}</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>New Program Fees (PIN Debit + Program Fee)</strong></td>
+                    <td><strong>${formatCurrency(newFeesMonthly)}</strong></td>
+                    <td><strong>${formatCurrency(newFeesAnnual)}</strong></td>
+                </tr>
+                <tr class="savings-row">
+                    <td><strong>💰 Your Savings</strong></td>
+                    <td><strong>${formatCurrency(monthlySavings)}</strong></td>
+                    <td><strong>${formatCurrency(annualSavings)}</strong></td>
+                </tr>
+            `;
+            
+            // Populate detailed breakdown table
+            const tbody = document.querySelector('#summaryTable tbody');
+            tbody.innerHTML = `
+                <tr>
+                    <td>Credit Card Processing Fees</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
+                </tr>
+                <tr>
+                    <td>PIN Debit Costs (0.05% + $0.21 + $0.10/txn)</td>
+                    <td>${formatCurrency(totalPinCostMonthly)}</td>
+                    <td>${formatCurrency(totalPinCostAnnual)}</td>
+                </tr>
+                <tr>
+                    <td>Cash Discounting Program Fee</td>
+                    <td>${formatCurrency(monthlyProgramFee)}</td>
+                    <td>${formatCurrency(annualProgramFee)}</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Total Program Costs</strong></td>
+                    <td><strong>${formatCurrency(newFeesMonthly)}</strong></td>
+                    <td><strong>${formatCurrency(newFeesAnnual)}</strong></td>
+                </tr>
+            `;
+            
+            const savingsPercentage = ((annualSavings / currentFeesAnnual) * 100).toFixed(1);
+            
+            document.getElementById('savingsDisplay').innerHTML = 
+                `🎉 Annual Savings: ${formatCurrency(annualSavings)} (${savingsPercentage}% reduction in processing costs)<br>
+                <span style="font-size: 0.9em;">Save ${formatCurrency(monthlySavings)} every month with cash discounting</span>`;
+            
+            document.getElementById('output').style.display = 'block';
+            
+            // Smooth scroll to results
+            document.getElementById('output').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+</html>
