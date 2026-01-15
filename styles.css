@@ -16,6 +16,8 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+
+/* Header with vertical stacking - logo/name on top, nav below */
 .new-header {
     position: sticky;
     top: 0;
@@ -32,6 +34,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    position: relative;
 }
 
 .logo-link {
@@ -73,8 +76,8 @@ body {
     padding: 0.5rem;
     color: #374151;
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: 0;
+    top: 0;
 }
 
 @media (min-width: 768px) {
@@ -85,16 +88,11 @@ body {
 
 .new-nav {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: white;
+    width: 100%;
     flex-direction: column;
     gap: 0;
     padding: 1rem;
-    border-top: 1px solid #e5e7eb;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: white;
 }
 
 .new-nav.mobile-open {
@@ -104,13 +102,11 @@ body {
 @media (min-width: 768px) {
     .new-nav {
         display: flex !important;
-        position: static;
         flex-direction: row;
         gap: 2rem;
         padding: 0;
-        border: none;
-        box-shadow: none;
         justify-content: center;
+        width: auto;
     }
 }
 
@@ -122,6 +118,7 @@ body {
     transition: color 0.3s ease;
     padding: 0.75rem 1rem;
     display: block;
+    text-align: center;
 }
 
 .nav-link:hover {
@@ -132,6 +129,7 @@ body {
     color: #4f46e5;
     font-weight: 700;
 }
+
 /* Hero sections */
 .hero, .page-hero {
     background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
@@ -312,6 +310,10 @@ footer {
     margin: 0 auto;
 }
 
+.differentiators {
+    background: #fff;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .hero, .page-hero {
@@ -324,5 +326,9 @@ footer {
 
     h2 {
         font-size: 2rem;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
     }
 }
