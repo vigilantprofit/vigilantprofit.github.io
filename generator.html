@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Processing Proposal Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .calculator-section {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: border-color 0.3s;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .input-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .button-group {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0 10px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        #proposalOutput {
+            padding: 40px;
+            display: none;
+        }
+        
+        .proposal-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .proposal-header h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .proposal-section {
+            margin-bottom: 40px;
+        }
+        
+        .proposal-section h3 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .proposal-section h4 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin: 25px 0 15px 0;
+        }
+        
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .summary-box h3 {
+            color: white;
+            border: none;
+            margin-bottom: 20px;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .summary-item {
+            text-align: center;
+        }
+        
+        .summary-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .summary-value {
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        table tr:last-child td {
+            border-bottom: none;
+            font-weight: 700;
+            background: #f0f0f0;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .note {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+            transition: all 0.3s;
+            display: none;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .calculator-section,
+            .print-btn,
+            .button-group {
+                display: none !important;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            #proposalOutput {
+                display: block !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💳 Payment Processing Proposal Generator</h1>
+            <p>Transparent IC+ Pricing Calculator</p>
+        </div>
+        
+        <div class="calculator-section">
+            <h2 style="margin-bottom: 30px; color: #333;">Enter Your Processing Information</h2>
+            
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="monthlyRevenue">Monthly Credit Card Revenue ($)</label>
+                    <input type="number" id="monthlyRevenue" placeholder="e.g., 68328" step="0.01">
+                </div>
+                
+                <div class="input-group">
+                    <label for="totalTransactions">Total Monthly Transactions</label>
+                    <input type="number" id="totalTransactions" placeholder="e.g., 2376" step="1">
+                </div>
+                
+                <div class="input-group">
+                    <label for="avgTicket">Average Ticket Amount ($)</label>
+                    <input type="number" id="avgTicket" placeholder="e.g., 28.76" step="0.01">
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="generateProposal()">Generate Proposal</button>
+                <button class="btn btn-secondary" onclick="resetForm()">Reset</button>
+            </div>
+        </div>
+        
+        <div id="proposalOutput"></div>
+    </div>
+    
+    <button class="print-btn" id="printBtn" onclick="window.print()">🖨️ Print Proposal</button>
+
+    <script>
+        // Auto-calculate missing value
+        function autoCalculate(changedField) {
+    const revenueInput = document.getElementById('monthlyRevenue');
+    const transactionsInput = document.getElementById('totalTransactions');
+    const avgTicketInput = document.getElementById('avgTicket');
+    
+    const revenue = parseFloat(revenueInput.value) || 0;
+    const transactions = parseFloat(transactionsInput.value) || 0;
+    const avgTicket = parseFloat(avgTicketInput.value) || 0;
+    
+    // Calculate based on which field was just changed
+    if (changedField === 'revenue' || changedField === 'transactions') {
+        if (revenue > 0 && transactions > 0) {
+            avgTicketInput.value = (revenue / transactions).toFixed(2);
+        }
+    } else if (changedField === 'avgTicket') {
+        if (avgTicket > 0 && transactions > 0 && !revenue) {
+            revenueInput.value = (transactions * avgTicket).toFixed(2);
+        } else if (avgTicket > 0 && revenue > 0 && !transactions) {
+            transactionsInput.value = Math.round(revenue / avgTicket);
+        }
+    }
+}
+        
+        document.getElementById('monthlyRevenue').addEventListener('input', function() {autoCalculate('revenue');
+        });
+        document.getElementById('totalTransactions').addEventListener('input', function() {
+    autoCalculate('transactions');
+});
+        document.getElementById('avgTicket').addEventListener('input', function() {
+    autoCalculate('avgTicket');
+});
+        
+        function formatCurrency(amount) {
+            return '$' + parseFloat(amount).toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+        
+        function formatPercent(decimal) {
+            return (decimal * 100).toFixed(2) + '%';
+        }
+        
+        function generateProposal() {
+            const revenue = parseFloat(document.getElementById('monthlyRevenue').value);
+            const transactions = parseFloat(document.getElementById('totalTransactions').value);
+            const avgTicket = parseFloat(document.getElementById('avgTicket').value);
+            
+            if (!revenue || !transactions || !avgTicket) {
+                alert('Please enter at least two values. The third will be calculated automatically.');
+                return;
+            }
+            
+            // Calculate annual figures
+            const annualRevenue = revenue * 12;
+            const annualTransactions = transactions * 12;
+            
+            // IC+ Pricing Components
+            
+            // 1. Blended Interchange (estimated at 1.65% for retail)
+            const visaInterchange = 0.0165; // Estimated average
+            const mastercardInterchange = 0.0165;
+            const discoverInterchange = 0.0165;
+            const amexInterchange = 0.0165;
+            
+            // Assume equal distribution (25% each) - can be customized
+            const blendedInterchange = 0.0165;
+            
+            const monthlyInterchange = revenue * blendedInterchange;
+            const annualInterchange = monthlyInterchange * 12;
+            
+            // 2. IC+ Markup (0.4% = 0.004)
+            const icPlusMarkup = 0.004;
+            const monthlyMarkup = revenue * icPlusMarkup;
+            const annualMarkup = monthlyMarkup * 12;
+            
+            // 3. Assessments (0.14% for each brand)
+            const assessmentRate = 0.0014;
+            const monthlyAssessments = revenue * assessmentRate * 4; // 4 brands
+            const annualAssessments = monthlyAssessments * 12;
+            
+            // 4. Transaction Fees ($0.06 per transaction)
+            const transactionFee = 0.06;
+            const monthlyTransactionFees = transactions * transactionFee;
+            const annualTransactionFees = monthlyTransactionFees * 12;
+            
+            // 5. Authorization Fees from Schedule A
+            const authFeeIP = 0.06;
+            const monthlyAuthFees = transactions * authFeeIP;
+            const annualAuthFees = monthlyAuthFees * 12;
+            
+            // 6. Monthly Service Fees
+            const monthlyAccountFee = 15.95;
+            const annualAccountFee = monthlyAccountFee * 12;
+            
+            // Total Fees
+            const totalMonthlyFees = monthlyInterchange + monthlyMarkup + monthlyAssessments + 
+                                    monthlyTransactionFees + monthlyAuthFees + monthlyAccountFee;
+            const totalAnnualFees = totalMonthlyFees * 12;
+            
+            // Effective Rate
+            const effectiveRate = totalMonthlyFees / revenue;
+            
+            // Per Transaction Cost
+            const costPerTransaction = totalMonthlyFees / transactions;
+            
+            // Generate Proposal HTML
+            const proposalHTML = `
+                <div class="proposal-header">
+    <img src="xplorpay-logo.png" alt="XplorPay Logo" style="max-width: 300px; margin-bottom: 20px;">
+    <h2>Payment Processing Proposal</h2>
+    <p style="font-size: 1.2em; color: #666;">Generated on ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+</div>
+                
+                <div class="summary-box">
+                    <h3>Proposed Pricing Overview</h3>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <div class="summary-label">Monthly Revenue</div>
+                            <div class="summary-value">${formatCurrency(revenue)}</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Monthly Transactions</div>
+                            <div class="summary-value">${transactions.toLocaleString()}</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Average Ticket</div>
+                            <div class="summary-value">${formatCurrency(avgTicket)}</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Total Monthly Fees</div>
+                            <div class="summary-value">${formatCurrency(totalMonthlyFees)}</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Effective Rate</div>
+                            <div class="summary-value">${formatPercent(effectiveRate)}</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Cost Per Transaction</div>
+                            <div class="summary-value">${formatCurrency(costPerTransaction)}</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="proposal-section">
+                    <h3>Understanding IC+ (Interchange-Plus) Pricing</h3>
+                    <p style="font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                        Interchange-Plus pricing provides complete transparency by separating actual costs from our markup. 
+                        You pay the true wholesale interchange rate (what goes to issuing banks) plus a small, fixed percentage markup. 
+                        This means you benefit when your card mix is favorable, and you always know exactly what you're paying for.
+                    </p>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Traditional Tiered Pricing</th>
+                                <th>IC+ Model</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Transparency</strong></td>
+                                <td>Hidden card mix assumptions</td>
+                                <td>Full visibility to actual interchange</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cost Structure</strong></td>
+                                <td>Fixed rate tiers</td>
+                                <td>Actual wholesale cost + fixed markup</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Predictability</strong></td>
+                                <td>Variable (depends on card mix shifts)</td>
+                                <td>Fixed markup (predictable)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Your Benefit</strong></td>
+                                <td>Processor profits from assumptions</td>
+                                <td>You pay actual cost + small markup only</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="proposal-section">
+                    <h3>Detailed Fee Breakdown</h3>
+                    
+                    <h4>1. Interchange (Pass-Through)</h4>
+                    <p style="line-height: 1.6; margin-bottom: 15px;">
+                        The wholesale cost paid directly to issuing banks. This is <strong>NOT</strong> our profit—it goes to the banks that issued the cards. 
+                        We pass this through at actual cost with no markup.
+                    </p>
+                    
+                    <div class="note">
+                        <strong>Blended Interchange Rates by Card Brand:</strong><br>
+                        • Visa: ${formatPercent(visaInterchange)}<br>
+                        • Mastercard: ${formatPercent(mastercardInterchange)}<br>
+                        • Discover: ${formatPercent(discoverInterchange)}<br>
+                        • American Express: ${formatPercent(amexInterchange)}<br><br>
+                        <em>Note: Actual rates vary by card type, transaction method, and MCC. These are estimated averages for retail.</em>
+                    </div>
+                    
+                    <table>
+                        <tr>
+                            <td>Monthly Interchange Cost</td>
+                            <td>${formatCurrency(monthlyInterchange)}</td>
+                        </tr>
+                        <tr>
+                            <td>Annual Interchange Cost</td>
+                            <td>${formatCurrency(annualInterchange)}</td>
+                        </tr>
+                    </table>
+                    
+                    <h4>2. IC+ Markup (Our Processing Fee)</h4>
+                    <p style="line-height: 1.6; margin-bottom: 15px;">
+                        Our service fee for payment processing. This <span class="highlight">0.40%</span> (400 basis points) markup covers:
+                    </p>
+                    <ul style="margin-left: 30px; margin-bottom: 20px; line-height: 1.8;">
+                        <li>Payment processing and gateway</li>
+                        <li>Merchant account management</li>
+                        <li>24/7 customer support</li>
+                        <li>Monthly reporting and analytics</li>
+                        <li>PCI compliance oversight</li>
+                        <li>Settlement and funding</li>
+                    </ul>
+                    
+                    <table>
+                        <tr>
+                            <td>IC+ Markup Rate</td>
+                            <td>${formatPercent(icPlusMarkup)}</td>
+                        </tr>
+                        <tr>
+                            <td>Monthly Markup Fee</td>
+                            <td>${formatCurrency(monthlyMarkup)}</td>
+                        </tr>
+                        <tr>
+                            <td>Annual Markup Fee</td>
+                            <td>${formatCurrency(annualMarkup)}</td>
+                        </tr>
+                    </table>
+                    
+                    <h4>3. Network Assessments (Pass-Through)</h4>
+                    <p style="line-height: 1.6; margin-bottom: 15px;">
+                        Dues and assessments charged by card networks (Visa, Mastercard, Discover, Amex). These are set by the card brands and passed through at cost.
+                    </p>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Network</th>
+                                <th>Assessment Rate</th>
+                                <th>Monthly Cost</th>
+                                <th>Annual Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Visa</td>
+                                <td>0.14%</td>
+                                <td>${formatCurrency(revenue * 0.0014)}</td>
+                                <td>${formatCurrency(revenue * 0.0014 * 12)}</td>
+                            </tr>
+                            <tr>
+                                <td>Mastercard</td>
+                                <td>0.14%</td>
+                                <td>${formatCurrency(revenue * 0.0014)}</td>
+                                <td>${formatCurrency(revenue * 0.0014 * 12)}</td>
+                            </tr>
+                            <tr>
+                                <td>Discover</td>
+                                <td>0.14%</td>
+                                <td>${formatCurrency(revenue * 0.0014)}</td>
+                                <td>${formatCurrency(revenue * 0.0014 * 12)}</td>
+                            </tr>
+                            <tr>
+                                <td>American Express</td>
+                                <td>0.14%</td>
+                                <td>${formatCurrency(revenue * 0.0014)}</td>
+                                <td>${formatCurrency(revenue * 0.0014 * 12)}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TOTAL</strong></td>
+                                <td><strong>0.56%</strong></td>
+                                <td><strong>${formatCurrency(monthlyAssessments)}</strong></td>
+                                <td><strong>${formatCurrency(annualAssessments)}</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4>4. Transaction Fees</h4>
+                    <p style="line-height: 1.6; margin-bottom: 15px;">
+                        Per-transaction fees charged at <span class="highlight">$0.06 per transaction</span>. These are passed through at cost.
+                    </p>
+                    
+                    <table>
+                        <tr>
+                            <td>Transaction Fee Rate</td>
+                            <td>$0.06 per transaction</td>
+                        </tr>
+                        <tr>
+                            <td>Monthly Transactions</td>
+                            <td>${transactions.toLocaleString()}</td>
+                        </tr>
+                        <tr>
+                            <td>Monthly Transaction Fees</td>
+                            <td>${formatCurrency(monthlyTransactionFees)}</td>
+                        </tr>
+                        <tr>
+                            <td>Annual Transaction Fees</td>
+                            <td>${formatCurrency(annualTransactionFees)}</td>
+                        </tr>
+                    </table>
+                    
+                    <h4>5. Authorization Fees</h4>
+                    <p style="line-height: 1.6; margin-bottom: 15px;">
+                        Per-authorization fees for processing transactions.
+                    </p>
+                    
+                    <table>
+                        <tr>
+                            <td>Authorization Fee (IP)</td>
+                            <td>$0.06 per authorization</td>
+                        </tr>
+                        <tr>
+                            <td>Monthly Authorization Fees</td>
+                            <td>${formatCurrency(monthlyAuthFees)}</td>
+                        </tr>
+                        <tr>
+                            <td>Annual Authorization Fees</td>
+                            <td>${formatCurrency(annualAuthFees)}</td>
+                        </tr>
+                    </table>
+                    
+                    <h4>6. Monthly Service Fees</h4>
+                    <p style="line-height: 1.6; margin-bottom: 15px;">
+                        Account maintenance and service fees.
+                    </p>
+                    
+                    <table>
+                        <tr>
+                            <td>Monthly Account Fee</td>
+                            <td>${formatCurrency(monthlyAccountFee)}</td>
+                        </tr>
+                        <tr>
+                            <td>Annual Account Fee</td>
+                            <td>${formatCurrency(annualAccountFee)}</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="proposal-section">
+                    <h3>Total Cost Summary</h3>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fee Category</th>
+                                <th>Monthly</th>
+                                <th>Annual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Interchange (Pass-Through)</td>
+                                <td>${formatCurrency(monthlyInterchange)}</td>
+                                <td>${formatCurrency(annualInterchange)}</td>
+                            </tr>
+                            <tr>
+                                <td>IC+ Markup (0.40%)</td>
+                                <td>${formatCurrency(monthlyMarkup)}</td>
+                                <td>${formatCurrency(annualMarkup)}</td>
+                            </tr>
+                            <tr>
+                                <td>Network Assessments (Pass-Through)</td>
+                                <td>${formatCurrency(monthlyAssessments)}</td>
+                                <td>${formatCurrency(annualAssessments)}</td>
+                            </tr>
+                            <tr>
+                                <td>Transaction Fees (Pass-Through)</td>
+                                <td>${formatCurrency(monthlyTransactionFees)}</td>
+                                <td>${formatCurrency(annualTransactionFees)}</td>
+                            </tr>
+                            <tr>
+                                <td>Authorization Fees (Pass-Through)</td>
+                                <td>${formatCurrency(monthlyAuthFees)}</td>
+                                <td>${formatCurrency(annualAuthFees)}</td>
+                            </tr>
+                            <tr>
+                                <td>Monthly Service Fees</td>
+                                <td>${formatCurrency(monthlyAccountFee)}</td>
+                                <td>${formatCurrency(annualAccountFee)}</td>
+                            </tr>
+                            <tr style="background: #667eea; color: white;">
+                                <td><strong>TOTAL FEES</strong></td>
+                                <td><strong>${formatCurrency(totalMonthlyFees)}</strong></td>
+                                <td><strong>${formatCurrency(totalAnnualFees)}</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div style="margin-top: 30px; padding: 20px; background: #f0f0f0; border-radius: 8px;">
+                        <h4 style="color: #333; margin-top: 0;">Key Metrics</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                            <div>
+                                <div style="font-size: 0.9em; color: #666;">Effective Rate</div>
+                                <div style="font-size: 1.8em; font-weight: 700; color: #667eea;">${formatPercent(effectiveRate)}</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.9em; color: #666;">Cost Per Transaction</div>
+                                <div style="font-size: 1.8em; font-weight: 700; color: #667eea;">${formatCurrency(costPerTransaction)}</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.9em; color: #666;">IC + Fees Total</div>
+                                <div style="font-size: 1.8em; font-weight: 700; color: #667eea;">${formatCurrency(monthlyInterchange + monthlyMarkup)}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="proposal-section">
+                    <h3>Why Choose IC+ Pricing?</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 20px;">
+                        <div style="padding: 20px; background: #e7f3ff; border-radius: 8px;">
+                            <h4 style="color: #2196F3; margin-top: 0;">✅ Complete Transparency</h4>
+                            <p>See exactly what each component costs with no hidden fees or assumptions about your card mix.</p>
+                        </div>
+                        
+                        <div style="padding: 20px; background: #e8f5e9; border-radius: 8px;">
+                            <h4 style="color: #4CAF50; margin-top: 0;">✅ Cost Control</h4>
+                            <p>Fixed 0.40% markup regardless of card mix. All pass-through fees charged at actual cost.</p>
+                        </div>
+                        
+                        <div style="padding: 20px; background: #fff3e0; border-radius: 8px;">
+                            <h4 style="color: #FF9800; margin-top: 0;">✅ Flexibility</h4>
+                            <p>Simple, predictable monthly costs with no long-term contracts required.</p>
+                        </div>
+                        
+                        <div style="padding: 20px; background: #f3e5f5; border-radius: 8px;">
+                            <h4 style="color: #9C27B0; margin-top: 0;">✅ Scalability</h4>
+                            <p>As your volume grows, the fixed percentage creates leverage and predictable cost structure.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="proposal-section">
+                    <h3>Important Notes</h3>
+                    
+                    <div class="note">
+                        <strong>This proposal is based on:</strong><br>
+                        • Estimated blended interchange rate of ${formatPercent(blendedInterchange)} (typical for retail)<br>
+                        • Transaction fee of $0.06 per transaction<br>
+                        • October 2025 Interchange Rate Tables<br><br>
+                        
+                        <strong>Actual costs may vary based on:</strong><br>
+                        • Your specific card brand mix (Visa, Mastercard, Discover, Amex)<br>
+                        • Card types processed (consumer, business, premium, rewards)<br>
+                        • Transaction methods (card present vs. card not present)<br>
+                        • Your Merchant Category Code (MCC)<br><br>
+                        
+                        <em>The IC+ markup of 0.40% remains fixed regardless of these variables. Only the pass-through interchange varies with your actual card mix.</em>
+                    </div>
+                </div>
+                
+                <div class="proposal-section">
+                    <h3>Next Steps</h3>
+                    
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        To refine this proposal and provide exact pricing, we recommend providing:<br><br>
+                        
+                        <strong>1. Card Brand Breakdown</strong> - Monthly volume by Visa, Mastercard, Discover, and American Express<br>
+                        <strong>2. Transaction Details</strong> - Card present vs. card not present percentages<br>
+                        <strong>3. Current Statement</strong> - For accurate comparison with your existing processor<br>
+                        <strong>4. Merchant Category Code</strong> - To ensure proper interchange qualification<br><br>
+                        
+                        Once we receive this information, we can calculate your exact blended interchange rate and provide a precise cost comparison.
+                    </p>
+                </div>
+                
+                <div style="margin-top: 50px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px; text-align: center;">
+                    <h3 style="color: white; border: none; margin-bottom: 15px;">Ready to Get Started?</h3>
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">Contact us today to discuss your specific needs and finalize your pricing.</p>
+                    <p style="font-size: 1.2em; font-weight: 600;">Xigilant Profit Solutions, LLC powered by XplorPay<br>
+                        Mark Zaw-Win, Account Executive<br>
+                        Phone: 301-305-0401<br>
+                        Email: mark.zaw-win@xplorpay.com<br>
+                        Site:  www.xplorpay.com</p>
+                </div>
+            `;
+            
+            document.getElementById('proposalOutput').innerHTML = proposalHTML;
+            document.getElementById('proposalOutput').style.display = 'block';
+            document.getElementById('printBtn').style.display = 'block';
+            
+            // Scroll to proposal
+            document.getElementById('proposalOutput').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function resetForm() {
+            document.getElementById('monthlyRevenue').value = '';
+            document.getElementById('totalTransactions').value = '';
+            document.getElementById('avgTicket').value = '';
+            document.getElementById('proposalOutput').style.display = 'none';
+            document.getElementById('printBtn').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
